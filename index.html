@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -8,7 +7,7 @@
 
     <title>Thayanne | Meu Universo 💗</title>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
@@ -143,24 +142,15 @@
 
         .imagem-hobby {
             width: 100%;
-            height: 240px;
+            height: 220px;
             object-fit: cover;
             border-radius: 15px;
             cursor: pointer;
-            transition: .4s;
+            transition: .3s;
         }
 
         .imagem-hobby:hover {
-            transform: scale(1.04);
-            filter: brightness(1.05);
-        }
-
-        .hobby-card {
-            overflow: hidden;
-        }
-
-        .hobby-card h3 {
-            margin-top: 15px;
+            transform: scale(1.03);
         }
 
         /* BOTÕES */
@@ -227,7 +217,7 @@
             box-shadow: 0 0 0 .2rem #c65b8325;
         }
 
-        /* MODAL DAS FOTOS */
+        /* MODAIS */
 
         .modal-content {
             border-radius: 20px;
@@ -247,22 +237,8 @@
             padding: 30px 15px;
             margin-top: 70px;
         }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 65px 15px;
-            }
-
-            .imagem-hobby {
-                height: 220px;
-            }
-
-            .formulario,
-            .contato {
-                padding: 25px 18px;
-            }
-        }
     </style>
+
 </head>
 
 <body>
@@ -285,6 +261,7 @@
 
     </header>
 
+
     <!-- MENU -->
 
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -295,10 +272,8 @@
                 Thayanne 💗
             </a>
 
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#menu"
-                aria-controls="menu" aria-expanded="false"
-                aria-label="Abrir menu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
 
                 <span class="navbar-toggler-icon"></span>
 
@@ -340,7 +315,9 @@
 
     </nav>
 
+
     <main class="container py-4">
+
 
         <!-- BUSCA -->
 
@@ -350,25 +327,26 @@
                 <i class="bi bi-search"></i> Buscar no site
             </h5>
 
-            <form action="https://www.flamengo.com.br/loja"
-                method="get"
-                class="row justify-content-center">
+            <form action="https://www.flamengo.com.br/loja" method="get" class="row justify-content-center">
 
                 <div class="col-md-7">
-                    <input type="text" name="q"
-                        class="form-control"
-                        placeholder="Digite sua busca...">
+
+                    <input type="text" name="q" class="form-control" placeholder="Digite sua busca...">
+
                 </div>
 
                 <div class="col-md-auto mt-2 mt-md-0">
-                    <button class="btn btn-rosa">
+
+                    <button type="submit" class="btn btn-rosa">
                         Buscar 🔎
                     </button>
+
                 </div>
 
             </form>
 
         </section>
+
 
         <!-- APRESENTAÇÃO -->
 
@@ -378,9 +356,7 @@
 
                 <div class="col-md-5 text-center">
 
-                    <img src="minha.foto.jpg.png"
-                        alt="Foto da Thayanne"
-                        class="foto">
+                    <img src="minha.foto.jpg.png" alt="Foto da Thayanne" class="foto">
 
                     <p class="mt-3" style="color: var(--rosa-escuro)">
                         Essa sou eu! 💗
@@ -399,16 +375,20 @@
                     </h2>
 
                     <p class="texto">
+
                         Oiii! Meu nome é <strong>Thayanne</strong>,
                         mas podem me chamar de Thay! 💗
 
                         Criei este espaço para compartilhar um pouquinho
                         de quem eu sou, das coisas que amo e dos meus sonhos.
+
                     </p>
 
                     <p class="texto">
+
                         Estou aprendendo a criar sites e quero transformar
                         esse aprendizado em novas oportunidades para o futuro.
+
                     </p>
 
                     <a href="#hobbies" class="btn btn-rosa mt-2">
@@ -420,6 +400,7 @@
             </div>
 
         </section>
+
 
         <!-- MINHA HISTÓRIA -->
 
@@ -434,6 +415,7 @@
             <div class="row g-4">
 
                 <div class="col-md-4">
+
                     <article class="cartao p-4">
 
                         <div class="icone mb-3">
@@ -443,14 +425,19 @@
                         <h3 class="h5">Estudos</h3>
 
                         <p class="texto">
+
                             Comecei minha jornada acadêmica em Pedagogia,
                             uma área ligada ao aprendizado e desenvolvimento.
+
                         </p>
 
                     </article>
+
                 </div>
 
+
                 <div class="col-md-4">
+
                     <article class="cartao p-4">
 
                         <div class="icone mb-3">
@@ -460,14 +447,19 @@
                         <h3 class="h5">Novos sonhos</h3>
 
                         <p class="texto">
+
                             Estou descobrindo o mundo da programação
                             e aprendendo a criar minhas próprias páginas.
+
                         </p>
 
                     </article>
+
                 </div>
 
+
                 <div class="col-md-4">
+
                     <article class="cartao p-4">
 
                         <div class="icone mb-3">
@@ -477,16 +469,20 @@
                         <h3 class="h5">Meu futuro</h3>
 
                         <p class="texto">
+
                             Quero aprender coisas novas, evoluir e
                             construir um futuro cheio de possibilidades.
+
                         </p>
 
                     </article>
+
                 </div>
 
             </div>
 
         </section>
+
 
         <!-- HOBBIES -->
 
@@ -502,63 +498,66 @@
 
             <div class="row g-4">
 
+
                 <!-- RBD -->
 
                 <div class="col-md-4">
 
-                    <article class="cartao hobby-card p-4 text-center">
+                    <article class="cartao p-4 text-center">
 
-                        <img
-                            src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg"
-                            alt="Minha foto do RBD"
-                            class="imagem-hobby mb-3"
-                            data-bs-toggle="modal"
+                        <img src="rbd.jpg" alt="Banda RBD" class="imagem-hobby mb-3" data-bs-toggle="modal"
                             data-bs-target="#modalRBD">
 
                         <h3 class="h5">Música 🎤</h3>
 
                         <p class="texto">
+
                             Minha banda favorita é RBD! ❤️
                             Adoro suas músicas e tenho um carinho
                             especial por essa banda.
+
                         </p>
 
-                        <small class="texto">
-                            Clique na foto para ampliar 💗
-                        </small>
+                        <button type="button" class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalRBD">
+
+                            Ver imagem 💗
+
+                        </button>
 
                     </article>
 
                 </div>
+
 
                 <!-- FRIENDS -->
 
                 <div class="col-md-4">
 
-                    <article class="cartao hobby-card p-4 text-center">
+                    <article class="cartao p-4 text-center">
 
-                        <img
-                            src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg"
-                            alt="Minha foto da série Friends"
-                            class="imagem-hobby mb-3"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalFriends">
+                        <img src="friends.jpg" alt="Capa da série Friends" class="imagem-hobby mb-3"
+                            data-bs-toggle="modal" data-bs-target="#modalFriends">
 
                         <h3 class="h5">Séries 🍿</h3>
 
                         <p class="texto">
+
                             Minha série favorita é Friends! ☕
                             Amo acompanhar as histórias, amizades
                             e momentos divertidos.
+
                         </p>
 
-                        <small class="texto">
-                            Clique na foto para ampliar 💗
-                        </small>
+                        <button type="button" class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalFriends">
+
+                            Ver imagem 💗
+
+                        </button>
 
                     </article>
 
                 </div>
+
 
                 <!-- CACHORROS -->
 
@@ -573,8 +572,10 @@
                         <h3 class="h5">Meus cachorros 🐶</h3>
 
                         <p class="texto">
+
                             Adoro brincar com meus companheiros
                             de quatro patas.
+
                         </p>
 
                     </article>
@@ -585,12 +586,12 @@
 
         </section>
 
+
         <!-- MODAL RBD -->
 
-        <div class="modal fade" id="modalRBD" tabindex="-1"
-            aria-labelledby="tituloRBD" aria-hidden="true">
+        <div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
 
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered">
 
                 <div class="modal-content p-3">
 
@@ -600,18 +601,14 @@
                             RBD ❤️
                         </h5>
 
-                        <button type="button" class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Fechar">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
                         </button>
 
                     </div>
 
                     <div class="modal-body text-center">
 
-                        <img
-                            src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg"
-                            alt="Banda RBD">
+                        <img src="rbd.jpg" alt="Banda RBD">
 
                         <p class="mt-3">
                             RBD no meu coração! ❤️
@@ -625,12 +622,12 @@
 
         </div>
 
+
         <!-- MODAL FRIENDS -->
 
-        <div class="modal fade" id="modalFriends" tabindex="-1"
-            aria-labelledby="tituloFriends" aria-hidden="true">
+        <div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
 
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered">
 
                 <div class="modal-content p-3">
 
@@ -640,18 +637,14 @@
                             Friends ☕
                         </h5>
 
-                        <button type="button" class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Fechar">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
                         </button>
 
                     </div>
 
                     <div class="modal-body text-center">
 
-                        <img
-                            src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg"
-                            alt="Série Friends">
+                        <img src="friends.jpg" alt="Capa da série Friends">
 
                         <p class="mt-3">
                             I'll be there for you! 💗
@@ -665,6 +658,7 @@
 
         </div>
 
+
         <!-- CURIOSIDADE -->
 
         <section class="secao cartao p-4" id="curiosidade">
@@ -674,8 +668,10 @@
             </h2>
 
             <p class="texto">
+
                 Tenho várias paixões, mas existe uma que ocupa
                 um espaço especial no meu coração!
+
             </p>
 
             <details>
@@ -685,22 +681,22 @@
                 </summary>
 
                 <p class="texto mt-3">
+
                     Sou apaixonada pelo Flamengo!
                     ❤️🖤 Uma vez Flamengo, sempre Flamengo!
+
                 </p>
 
             </details>
 
         </section>
 
+
         <!-- FLAMENGO -->
 
-        <section class="secao flamengo p-4 p-md-5 text-center"
-            id="flamengo">
+        <section class="secao flamengo p-4 p-md-5 text-center" id="flamengo">
 
-            <img src="mengo.jpg.jpeg"
-                alt="Flamengo, meu time do coração"
-                class="img-fluid rounded mb-3"
+            <img src="mengo.jpg.jpeg" alt="Flamengo, meu time do coração" class="img-fluid rounded mb-3"
                 style="width: 160px;">
 
             <h2>
@@ -708,8 +704,10 @@
             </h2>
 
             <p>
+
                 Ser Flamengo é muito mais que torcer.
                 É paixão, história e amor que não se explica!
+
             </p>
 
             <p>
@@ -720,15 +718,13 @@
 
             <div class="mt-3">
 
-                <a href="Flamengo.html" target="_blank"
-                    class="btn-flamengo m-1">
+                <a href="Flamengo.html" target="_blank" class="btn-flamengo m-1">
 
                     🔴 Conheça meu mundo rubro-negro
 
                 </a>
 
-                <a href="pdfmengo.pdf" target="_blank"
-                    class="btn btn-light rounded-pill m-1">
+                <a href="pdfmengo.pdf" target="_blank" class="btn btn-light rounded-pill m-1">
 
                     🏆 Mengão do meu coração
 
@@ -737,6 +733,7 @@
             </div>
 
         </section>
+
 
         <!-- CONTATO -->
 
@@ -751,19 +748,19 @@
             </h2>
 
             <p class="texto">
+
                 Quer falar comigo? É só escolher uma opção abaixo!
+
             </p>
 
-            <a href="mailto:thaytf15@gmail.com"
-                class="btn btn-rosa m-2">
+            <a href="mailto:thaytf15@gmail.com" class="btn btn-rosa m-2">
 
                 <i class="bi bi-envelope"></i>
                 Enviar e-mail
 
             </a>
 
-            <a href="tel:5548992199253"
-                class="btn btn-rosa m-2">
+            <a href="tel:5548992199253" class="btn btn-rosa m-2">
 
                 <i class="bi bi-telephone"></i>
                 Ligar para mim
@@ -772,10 +769,10 @@
 
         </section>
 
+
         <!-- INSCRIÇÃO -->
 
-        <section class="secao formulario text-center"
-            id="inscricao">
+        <section class="secao formulario text-center" id="inscricao">
 
             <h2 class="titulo-secao">
                 Faça parte do meu universo! 💗
@@ -791,13 +788,13 @@
                             Seu nome:
                         </label>
 
-                        <input type="text" id="nome" name="nome"
-                            class="form-control mb-3"
-                            placeholder="Digite seu nome"
+                        <input type="text" id="nome" name="nome" class="form-control mb-3" placeholder="Digite seu nome"
                             required>
 
                         <button type="submit" class="btn btn-rosa">
+
                             Enviar 💌
+
                         </button>
 
                     </div>
@@ -810,14 +807,17 @@
 
     </main>
 
+
     <!-- RODAPÉ -->
 
     <footer class="text-center" id="rodape">
 
         <p>
+
             Feito com
             <span style="color: #d71960;">♥️</span>
             por <strong>Thayanne</strong>
+
         </p>
 
         <p>
@@ -828,8 +828,7 @@
             Desenvolvido com HTML, CSS e Bootstrap.
         </p>
 
-        <a href="#inicio"
-            style="color: var(--rosa-escuro);
+        <a href="#inicio" style="color: var(--rosa-escuro);
             font-weight: bold;
             text-decoration: none;">
 
@@ -839,9 +838,11 @@
 
     </footer>
 
+
     <!-- BOOTSTRAP JAVASCRIPT -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
