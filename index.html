@@ -1,10 +1,91 @@
+<!-- ESTILO DOS HOBBIES -->
+
+<style>
+    /* HOBBIES DINÂMICOS */
+
+    .hobby-card {
+        background: white;
+        border: 1px solid #f8e1eb;
+        border-radius: 22px;
+        overflow: hidden;
+        height: 100%;
+        transition: .4s ease;
+        box-shadow: 0 8px 20px #c65b8315;
+    }
+
+    .hobby-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px #c65b8330;
+    }
+
+    .hobby-image-wrap {
+        width: 100%;
+        height: 270px;
+        background: #fff0f6;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .imagem-hobby {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: .4s;
+    }
+
+    .imagem-hobby:hover {
+        transform: scale(1.05);
+    }
+
+    .hobby-card h3 {
+        color: var(--rosa-escuro);
+        margin-top: 18px;
+    }
+
+    .hobby-hint {
+        color: var(--rosa);
+        font-size: 12px;
+        margin-top: 12px;
+    }
+
+    .hobby-icon {
+        height: 270px;
+        background: #fff0f6;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 75px;
+        color: var(--rosa);
+    }
+
+    @media (max-width: 767px) {
+
+        .hobby-image-wrap,
+        .hobby-icon {
+            height: 240px;
+        }
+    }
+</style>
+
+
 <!-- HOBBIES -->
 
 <section class="secao" id="hobbies">
 
-    <span class="etiqueta">COISINHAS QUE AMO</span>
+    <div class="text-center mb-4">
 
-    <h2 class="titulo-secao">Meus hobbies 🎀</h2>
+        <span class="etiqueta">COISINHAS QUE AMO</span>
+
+        <h2 class="titulo-secao">Meus hobbies 🎀</h2>
+
+        <p class="texto">
+            Um pouquinho das coisas que deixam meus dias mais felizes.
+        </p>
+
+    </div>
 
     <div class="row g-4">
 
@@ -12,20 +93,27 @@
 
         <div class="col-md-4">
 
-            <article class="cartao p-4 text-center">
+            <article class="hobby-card p-3 text-center">
 
-                <img src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg" alt="Banda RBD" class="imagem-hobby mb-3"
-                    data-bs-toggle="modal" data-bs-target="#modalRBD">
+                <div class="hobby-image-wrap">
+
+                    <img src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg" alt="Banda RBD" class="imagem-hobby"
+                        data-bs-toggle="modal" data-bs-target="#modalRBD" loading="lazy">
+
+                </div>
 
                 <h3 class="h5">Música 🎤</h3>
 
                 <p class="texto">
                     Minha banda favorita é RBD! ❤️
+
+                    Adoro suas músicas e tenho um carinho
+                    especial por essa banda.
                 </p>
 
-                <button class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalRBD">
-                    Ver imagem 💗
-                </button>
+                <p class="hobby-hint">
+                    Clique na foto para ampliar ✨
+                </p>
 
             </article>
 
@@ -36,20 +124,27 @@
 
         <div class="col-md-4">
 
-            <article class="cartao p-4 text-center">
+            <article class="hobby-card p-3 text-center">
 
-                <img src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg" alt="Elenco da série Friends"
-                    class="imagem-hobby mb-3" data-bs-toggle="modal" data-bs-target="#modalFriends">
+                <div class="hobby-image-wrap">
+
+                    <img src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg" alt="Elenco da série Friends"
+                        class="imagem-hobby" data-bs-toggle="modal" data-bs-target="#modalFriends" loading="lazy">
+
+                </div>
 
                 <h3 class="h5">Séries 🍿</h3>
 
                 <p class="texto">
                     Minha série favorita é Friends! ☕
+
+                    Amo acompanhar as histórias, amizades
+                    e momentos divertidos.
                 </p>
 
-                <button class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalFriends">
-                    Ver imagem 💗
-                </button>
+                <p class="hobby-hint">
+                    Clique na foto para ampliar ✨
+                </p>
 
             </article>
 
@@ -60,10 +155,12 @@
 
         <div class="col-md-4">
 
-            <article class="cartao p-4 text-center">
+            <article class="hobby-card p-3 text-center">
 
-                <div class="icone mb-3">
-                    <i class="bi bi-heart"></i>
+                <div class="hobby-icon">
+
+                    <i class="bi bi-heart-fill"></i>
+
                 </div>
 
                 <h3 class="h5">Meus cachorros 🐶</h3>
@@ -73,11 +170,114 @@
                     de quatro patas.
                 </p>
 
+                <p class="hobby-hint">
+                    Amor em forma de patinhas 💗
+                </p>
+
             </article>
 
         </div>
 
     </div>
+
+</section>
+
+
+<!-- MODAL RBD -->
+
+<div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content p-3">
+
+            <div class="modal-header border-0">
+
+                <h5 class="modal-title" id="tituloRBD">
+                    RBD ❤️
+                </h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+                </button>
+
+            </div>
+
+            <div class="modal-body text-center">
+
+                <img src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg" alt="Banda RBD" class="img-fluid rounded"
+                    style="max-height: 75vh; object-fit: contain;">
+
+                <p class="mt-3">
+                    RBD no meu coração! ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL FRIENDS -->
+
+<div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content p-3">
+
+            <div class="modal-header border-0">
+
+                <h5 class="modal-title" id="tituloFriends">
+                    Friends ☕
+                </h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+                </button>
+
+            </div>
+
+            <div class="modal-body text-center">
+
+                <img src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg" alt="Elenco da série Friends"
+                    class="img-fluid rounded" style="max-height: 75vh; object-fit: contain;">
+
+                <p class="mt-3">
+                    I'll be there for you! 💗
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CACHORROS -->
+
+<div class="col-md-4">
+
+    <article class="cartao p-4 text-center">
+
+        <div class="icone mb-3">
+            <i class="bi bi-heart"></i>
+        </div>
+
+        <h3 class="h5">Meus cachorros 🐶</h3>
+
+        <p class="texto">
+            Adoro brincar com meus companheiros
+            de quatro patas.
+        </p>
+
+    </article>
+
+</div>
+
+</div>
 
 </section>
 
