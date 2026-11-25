@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thayanne | Meu Universo Colorido ✨💗</title>
 
-    <title>Thayanne | Meu Universo 💗</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,11 +19,14 @@
 
     <style>
         :root {
-            --rosa: #c65b83;
-            --rosa-escuro: #a83d68;
-            --rosa-claro: #ffe3ee;
-            --fundo: #fff7fa;
-            --texto: #49343e;
+            --rosa-vibrante: #ff4785;
+            --rosa-escuro: #b81d59;
+            --lilas: #9b5de5;
+            --pessego: #ff9e7d;
+            --amarelo: #fee440;
+            --azul-ceu: #00bbf9;
+            --fundo: #fff5f9;
+            --texto: #3a2330;
         }
 
         * {
@@ -32,817 +39,918 @@
         }
 
         body {
-            background: var(--fundo);
+            background: radial-gradient(circle at top left, #ffe0ee 0%, #fff7fb 45%, #f3e8ff 100%);
             color: var(--texto);
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* CABEÇALHO */
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Fredoka', sans-serif;
+        }
 
+        /* BARRA DE PROGRESSO NO TOPO */
+        #barra-progresso {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 0%;
+            background: linear-gradient(90deg, #ff4785, #fee440, #9b5de5, #00bbf9);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* HERO ANIMADO E COLORIDO */
         .hero {
-            background: linear-gradient(135deg, #f7b8d0, #c65b83);
+            position: relative;
+            background: linear-gradient(-45deg, #ff4785, #ff85a1, #9b5de5, #ff9e7d);
+            background-size: 400% 400%;
+            animation: gradienteVivo 12s ease infinite;
             color: white;
-            padding: 85px 20px;
+            padding: 100px 20px 120px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 15px 35px rgba(255, 71, 133, 0.25);
+            overflow: hidden;
+        }
+
+        @keyframes gradienteVivo {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .bolha {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.16);
+            animation: flutuar 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .bolha-1 { width: 140px; height: 140px; top: 10%; left: 6%; }
+        .bolha-2 { width: 90px; height: 90px; bottom: 18%; right: 10%; animation-delay: 2s; }
+        .bolha-3 { width: 60px; height: 60px; top: 25%; right: 22%; animation-delay: 4s; }
+
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(12deg); }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: bold;
-            text-shadow: 2px 3px 5px #963456;
+            font-size: clamp(2.6rem, 6vw, 4.3rem);
+            font-weight: 700;
+            text-shadow: 0 5px 18px rgba(130, 18, 63, 0.35);
         }
 
         .subtitulo {
-            letter-spacing: 4px;
-            font-size: 13px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(6px);
+            padding: 6px 18px;
+            border-radius: 30px;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 600;
             text-transform: uppercase;
+            margin-bottom: 15px;
         }
 
-        /* MENU */
-
-        .navbar {
-            background: white;
-            box-shadow: 0 3px 12px #00000010;
-        }
-
-        .navbar-brand,
-        .nav-link {
+        .texto-digitado {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.92);
             color: var(--rosa-escuro);
-            font-weight: bold;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            min-height: 36px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-link:hover {
-            color: var(--rosa);
+        /* NAVBAR GLASSMORPHISM */
+        .navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 6px 25px rgba(184, 29, 89, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        .navbar-toggler {
-            border-color: var(--rosa);
+        .navbar-brand {
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, #ff4785, #9b5de5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* SEÇÕES */
+        .nav-link {
+            color: var(--texto);
+            font-weight: 600;
+            border-radius: 20px;
+            padding: 8px 15px !important;
+            transition: all 0.25s ease;
+        }
 
+        .nav-link:hover, .nav-link.active {
+            background: #ffe3ee;
+            color: var(--rosa-escuro);
+            transform: translateY(-2px);
+        }
+
+        /* SEÇÕES E ANIMAÇÃO DE ENTRADA */
         .secao {
-            margin-top: 65px;
+            margin-top: 75px;
+        }
+
+        .revelar {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .revelar.visivel {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .titulo-secao {
             color: var(--rosa-escuro);
-            font-weight: bold;
-            margin-bottom: 25px;
+            font-weight: 700;
+            margin-bottom: 22px;
         }
 
         .etiqueta {
             display: inline-block;
-            background: var(--rosa-claro);
+            background: linear-gradient(90deg, #ffe0ee, #f3e5ff);
             color: var(--rosa-escuro);
-            padding: 5px 15px;
+            padding: 6px 16px;
             border-radius: 30px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 700;
+            letter-spacing: 1px;
             margin-bottom: 12px;
         }
 
-        /* CARTÕES */
-
+        /* CARTÕES COLORIDOS */
         .cartao {
-            background: white;
-            border: 1px solid #f8e1eb;
-            border-radius: 22px;
-            transition: .3s;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border: 2px solid #ffe4f0;
+            border-radius: 26px;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
+            box-shadow: 0 8px 25px rgba(255, 71, 133, 0.06);
         }
 
         .cartao:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 25px #c65b8320;
+            transform: translateY(-8px) scale(1.01);
+            border-color: #ff85a1;
+            box-shadow: 0 18px 35px rgba(255, 71, 133, 0.16);
         }
 
-        .icone {
-            font-size: 35px;
-            color: var(--rosa);
+        .cartao-destaque {
+            box-shadow: 0 0 0 4px #fee440, 0 15px 30px rgba(255, 71, 133, 0.25) !important;
+            transform: scale(1.02);
         }
 
-        .cartao h3 {
-            color: var(--rosa-escuro);
+        .icone-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
         }
 
-        .texto {
-            color: #765e69;
-        }
+        .bg-grad-rosa { background: linear-gradient(135deg, #ff4785, #ff85a1); }
+        .bg-grad-lilas { background: linear-gradient(135deg, #9b5de5, #c77dff); }
+        .bg-grad-sol { background: linear-gradient(135deg, #ff9e7d, #f9c74f); }
 
         /* FOTOS */
+        .moldura-foto {
+            position: relative;
+            display: inline-block;
+            padding: 8px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, #ff4785, #fee440, #9b5de5);
+            box-shadow: 0 14px 30px rgba(255, 71, 133, 0.28);
+            transition: transform 0.4s ease;
+        }
+
+        .moldura-foto:hover {
+            transform: rotate(-2deg) scale(1.03);
+        }
 
         .foto {
             width: 100%;
-            max-width: 300px;
-            border: 6px solid var(--rosa-claro);
+            max-width: 290px;
             border-radius: 25px;
-            box-shadow: 0 8px 20px #c65b8340;
+            display: block;
+            background: #ffe3ee;
+        }
+
+        .imagem-hobby-wrapper {
+            overflow: hidden;
+            border-radius: 18px;
+            position: relative;
+            cursor: pointer;
         }
 
         .imagem-hobby {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: .3s;
+            object-position: top center;
+            transition: transform 0.45s ease;
         }
 
-        .imagem-hobby:hover {
-            transform: scale(1.03);
+        .imagem-hobby-wrapper:hover .imagem-hobby {
+            transform: scale(1.08);
+        }
+
+        .badge-foto {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--rosa-escuro);
+            font-weight: 700;
+            font-size: 12px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
         }
 
         /* BOTÕES */
-
         .btn-rosa {
-            background: var(--rosa);
+            background: linear-gradient(135deg, #ff4785, #d62869);
             color: white;
             border: none;
             border-radius: 30px;
-            padding: 11px 22px;
-            font-weight: bold;
+            padding: 11px 24px;
+            font-weight: 600;
+            box-shadow: 0 6px 16px rgba(255, 71, 133, 0.28);
+            transition: all 0.25s ease;
         }
 
         .btn-rosa:hover {
-            background: var(--rosa-escuro);
+            background: linear-gradient(135deg, #e03570, #b81d59);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(255, 71, 133, 0.38);
+        }
+
+        .btn-filtro {
+            border: 2px solid #ffc2d9;
+            background: white;
+            color: var(--rosa-escuro);
+            border-radius: 30px;
+            padding: 7px 18px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .btn-filtro.ativo, .btn-filtro:hover {
+            background: linear-gradient(135deg, #ff4785, #9b5de5);
+            border-color: transparent;
             color: white;
         }
 
-        /* FLAMENGO */
-
+        /* SEÇÃO FLAMENGO */
         .flamengo {
-            background: linear-gradient(135deg, #191919, #350909);
+            background: linear-gradient(135deg, #121212 0%, #3b080c 55%, #8a0e17 100%);
             color: white;
-            border-top: 6px solid #e32636;
-            border-radius: 25px;
+            border-top: 6px solid #ff2a3c;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(138, 14, 23, 0.3);
         }
 
         .flamengo h2 {
-            color: #ff4b55;
+            color: #ff5964;
         }
 
         .btn-flamengo {
-            background: #d71920;
+            background: linear-gradient(135deg, #e31b23, #a80008);
             color: white;
+            border: none;
             border-radius: 30px;
-            padding: 11px 22px;
+            padding: 12px 24px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             display: inline-block;
+            box-shadow: 0 6px 18px rgba(227, 27, 35, 0.4);
+            transition: 0.25s;
         }
 
         .btn-flamengo:hover {
-            background: #a90000;
+            transform: translateY(-2px) scale(1.03);
             color: white;
+            background: linear-gradient(135deg, #ff2a3c, #c2000a);
         }
 
         /* FORMULÁRIOS */
-
-        .formulario,
-        .contato {
-            background: white;
-            border-radius: 22px;
+        .formulario, .contato {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffe4f0;
+            border-radius: 28px;
             padding: 35px;
+            box-shadow: 0 10px 28px rgba(255, 71, 133, 0.08);
         }
 
         .form-control {
-            border: 1px solid #e7b4c9;
-            border-radius: 12px;
-            padding: 12px;
+            border: 2px solid #f7c6da;
+            border-radius: 16px;
+            padding: 12px 16px;
         }
 
         .form-control:focus {
-            border-color: var(--rosa);
-            box-shadow: 0 0 0 .2rem #c65b8325;
+            border-color: var(--rosa-vibrante);
+            box-shadow: 0 0 0 0.25rem rgba(255, 71, 133, 0.18);
         }
 
-        /* MODAIS */
-
-        .modal-content {
-            border-radius: 20px;
-            overflow: hidden;
+        /* CONFETES */
+        .confete {
+            position: fixed;
+            top: -20px;
+            font-size: 22px;
+            z-index: 9999;
+            pointer-events: none;
+            animation: cairConfete 3s linear forwards;
         }
 
-        .modal-body img {
-            width: 100%;
-            border-radius: 12px;
+        @keyframes cairConfete {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
         }
 
         /* RODAPÉ */
-
         footer {
-            background: #f8dce7;
-            color: #8c4260;
-            padding: 30px 15px;
-            margin-top: 70px;
+            background: linear-gradient(135deg, #ffe0ee, #f3e5ff);
+            color: var(--rosa-escuro);
+            padding: 40px 15px;
+            margin-top: 80px;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
         }
     </style>
-
 </head>
 
 <body>
 
+    <!-- BARRA DE PROGRESSO -->
+    <div id="barra-progresso"></div>
+
     <!-- CABEÇALHO -->
-
     <header class="hero text-center" id="inicio">
+        <div class="bolha bolha-1"></div>
+        <div class="bolha bolha-2"></div>
+        <div class="bolha bolha-3"></div>
 
-        <p class="subtitulo">Meu cantinho na internet</p>
+        <div class="container position-relative">
+            <span class="subtitulo">✨ Meu cantinho colorido na internet ✨</span>
 
-        <h1>♡ Oi, eu sou a Thay! ♡</h1>
+            <h1>♡ Oi, eu sou a Thay! ♡</h1>
 
-        <p class="lead">
-            Um pouquinho sobre mim, meus sonhos e minhas paixões.
-        </p>
+            <p class="lead mt-3 mb-4">
+                Eu sou <span class="texto-digitado" id="maquina-escrever">apaixonada por criar sites 💻</span>
+            </p>
 
-        <a href="#sobre" class="btn btn-light rounded-pill px-4 mt-3">
-            Conheça meu universo ✨
-        </a>
-
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <a href="#sobre" class="btn btn-light rounded-pill px-4 py-2 fw-bold text-danger shadow-sm">
+                    Explorar meu universo 🚀
+                </a>
+                <button type="button" class="btn btn-outline-light rounded-pill px-4 py-2 fw-bold" onclick="soltarConfetes(['💗','✨','🌷','🎀'])">
+                    Jogar brilho ✨
+                </button>
+            </div>
+        </div>
     </header>
 
-
     <!-- MENU -->
-
     <nav class="navbar navbar-expand-lg sticky-top">
-
         <div class="container">
-
-            <a class="navbar-brand" href="#inicio">
+            <a class="navbar-brand fw-bold" href="#inicio">
                 Thayanne 💗
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
-
                 <span class="navbar-toggler-icon"></span>
-
             </button>
 
             <div class="collapse navbar-collapse" id="menu">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Início</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Sobre mim</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#historia">Minha história</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hobbies">Hobbies</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#flamengo">Flamengo</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
-
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#historia">Minha história</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#flamengo">Flamengo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
                 </ul>
-
             </div>
-
         </div>
-
     </nav>
-
 
     <main class="container py-4">
 
-
-        <!-- BUSCA -->
-
-        <section class="formulario text-center mt-4">
-
-            <h5 class="titulo-secao">
-                <i class="bi bi-search"></i> Buscar no site
+        <!-- BUSCA DINÂMICA NO SITE -->
+        <section class="formulario text-center mt-4 revelar">
+            <h5 class="titulo-secao mb-2">
+                <i class="bi bi-search-heart"></i> O que você quer encontrar no meu universo?
             </h5>
-
-            <form action="https://www.flamengo.com.br/loja" method="get" class="row justify-content-center">
-
-                <div class="col-md-7">
-
-                    <input type="text" name="q" class="form-control" placeholder="Digite sua busca...">
-
-                </div>
-
-                <div class="col-md-auto mt-2 mt-md-0">
-
-                    <button type="submit" class="btn btn-rosa">
-                        Buscar 🔎
-                    </button>
-
-                </div>
-
-            </form>
-
-        </section>
-
-
-        <!-- APRESENTAÇÃO -->
-
-        <section class="secao cartao p-4 p-md-5" id="sobre">
-
-            <div class="row align-items-center g-4">
-
-                <div class="col-md-5 text-center">
-
-                    <img src="minha.foto.jpg.png" alt="Foto da Thayanne" class="foto">
-
-                    <p class="mt-3" style="color: var(--rosa-escuro)">
-                        Essa sou eu! 💗
-                    </p>
-
-                </div>
-
-                <div class="col-md-7">
-
-                    <span class="etiqueta">
-                        ♡ PRAZER, THAYANNE
-                    </span>
-
-                    <h2 class="titulo-secao">
-                        Bem-vindo ao meu universo!
-                    </h2>
-
-                    <p class="texto">
-
-                        Oiii! Meu nome é <strong>Thayanne</strong>,
-                        mas podem me chamar de Thay! 💗
-
-                        Criei este espaço para compartilhar um pouquinho
-                        de quem eu sou, das coisas que amo e dos meus sonhos.
-
-                    </p>
-
-                    <p class="texto">
-
-                        Estou aprendendo a criar sites e quero transformar
-                        esse aprendizado em novas oportunidades para o futuro.
-
-                    </p>
-
-                    <a href="#hobbies" class="btn btn-rosa mt-2">
-                        Conheça meu mundo ✨
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MINHA HISTÓRIA -->
-
-        <section class="secao" id="historia">
-
-            <span class="etiqueta">UM POUCO SOBRE MIM</span>
-
-            <h2 class="titulo-secao">
-                Minha história 🌷
-            </h2>
-
-            <div class="row g-4">
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-mortarboard"></i>
-                        </div>
-
-                        <h3 class="h5">Estudos</h3>
-
-                        <p class="texto">
-
-                            Comecei minha jornada acadêmica em Pedagogia,
-                            uma área ligada ao aprendizado e desenvolvimento.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-laptop"></i>
-                        </div>
-
-                        <h3 class="h5">Novos sonhos</h3>
-
-                        <p class="texto">
-
-                            Estou descobrindo o mundo da programação
-                            e aprendendo a criar minhas próprias páginas.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-butterfly"></i>
-                        </div>
-
-                        <h3 class="h5">Meu futuro</h3>
-
-                        <p class="texto">
-
-                            Quero aprender coisas novas, evoluir e
-                            construir um futuro cheio de possibilidades.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- HOBBIES -->
-
-        <section class="secao" id="hobbies">
-
-            <span class="etiqueta">
-                COISINHAS QUE AMO
-            </span>
-
-            <h2 class="titulo-secao">
-                Meus hobbies 🎀
-            </h2>
-
-            <div class="row g-4">
-
-
-                <!-- RBD -->
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4 text-center">
-
-                        <img src="rbd.jpg" alt="Banda RBD" class="imagem-hobby mb-3" data-bs-toggle="modal"
-                            data-bs-target="#modalRBD">
-
-                        <h3 class="h5">Música 🎤</h3>
-
-                        <p class="texto">
-
-                            Minha banda favorita é RBD! ❤️
-                            Adoro suas músicas e tenho um carinho
-                            especial por essa banda.
-
-                        </p>
-
-                        <button type="button" class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalRBD">
-
-                            Ver imagem 💗
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- FRIENDS -->
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4 text-center">
-
-                        <img src="friends.jpg" alt="Capa da série Friends" class="imagem-hobby mb-3"
-                            data-bs-toggle="modal" data-bs-target="#modalFriends">
-
-                        <h3 class="h5">Séries 🍿</h3>
-
-                        <p class="texto">
-
-                            Minha série favorita é Friends! ☕
-                            Amo acompanhar as histórias, amizades
-                            e momentos divertidos.
-
-                        </p>
-
-                        <button type="button" class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalFriends">
-
-                            Ver imagem 💗
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- CACHORROS -->
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4 text-center">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-heart"></i>
-                        </div>
-
-                        <h3 class="h5">Meus cachorros 🐶</h3>
-
-                        <p class="texto">
-
-                            Adoro brincar com meus companheiros
-                            de quatro patas.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MODAL RBD -->
-
-        <div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered">
-
-                <div class="modal-content p-3">
-
-                    <div class="modal-header border-0">
-
-                        <h5 class="modal-title" id="tituloRBD">
-                            RBD ❤️
-                        </h5>
-
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                        </button>
-
-                    </div>
-
-                    <div class="modal-body text-center">
-
-                        <img src="rbd.jpg" alt="Banda RBD">
-
-                        <p class="mt-3">
-                            RBD no meu coração! ❤️
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- MODAL FRIENDS -->
-
-        <div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered">
-
-                <div class="modal-content p-3">
-
-                    <div class="modal-header border-0">
-
-                        <h5 class="modal-title" id="tituloFriends">
-                            Friends ☕
-                        </h5>
-
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                        </button>
-
-                    </div>
-
-                    <div class="modal-body text-center">
-
-                        <img src="friends.jpg" alt="Capa da série Friends">
-
-                        <p class="mt-3">
-                            I'll be there for you! 💗
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CURIOSIDADE -->
-
-        <section class="secao cartao p-4" id="curiosidade">
-
-            <h2 class="titulo-secao">
-                Uma curiosidade sobre mim! 💕
-            </h2>
-
-            <p class="texto">
-
-                Tenho várias paixões, mas existe uma que ocupa
-                um espaço especial no meu coração!
-
+            <p class="small text-muted mb-3">
+                Digite algo como <strong>RBD</strong>, <strong>Friends</strong>, <strong>Flamengo</strong> ou <strong>Pedagogia</strong> para destacar na página!
             </p>
 
-            <details>
-
-                <summary style="color: var(--rosa-escuro); cursor: pointer;">
-                    Clique para descobrir!
-                </summary>
-
-                <p class="texto mt-3">
-
-                    Sou apaixonada pelo Flamengo!
-                    ❤️🖤 Uma vez Flamengo, sempre Flamengo!
-
-                </p>
-
-            </details>
-
+            <div class="row justify-content-center g-2">
+                <div class="col-md-6">
+                    <input type="text" id="campo-busca" class="form-control" placeholder="Digite para filtrar ou buscar...">
+                </div>
+                <div class="col-auto">
+                    <button type="button" id="btn-limpar-busca" class="btn btn-rosa">
+                        Limpar ✨
+                    </button>
+                </div>
+            </div>
+            <div id="resultado-busca" class="mt-3 fw-semibold" style="color: var(--rosa-escuro);"></div>
         </section>
 
+        <!-- APRESENTAÇÃO -->
+        <section class="secao cartao p-4 p-md-5 revelar buscavel" id="sobre" data-tags="thayanne thay sobre mim sites programacao">
+            <div class="row align-items-center g-4">
+                <div class="col-md-5 text-center">
+                    <div class="moldura-foto">
+                        <img src="minha.foto.jpg.png"
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x450/ffe3ee/b81d59?text=Foto+da+Thay+%F0%9F%92%97';"
+                             alt="Foto da Thayanne" class="foto">
+                    </div>
+                    <p class="mt-3 fw-bold" style="color: var(--rosa-escuro)">
+                        Essa sou eu! 💗
+                    </p>
+                </div>
+
+                <div class="col-md-7">
+                    <span class="etiqueta">♡ PRAZER, THAYANNE</span>
+
+                    <h2 class="titulo-secao display-6">
+                        Bem-vindo ao meu universo colorido!
+                    </h2>
+
+                    <p class="fs-5">
+                        Oiii! Meu nome é <strong style="color: var(--rosa-vibrante);">Thayanne</strong>,
+                        mas podem me chamar de <strong>Thay</strong>! 💗
+                    </p>
+
+                    <p class="text-muted">
+                        Criei este espaço para compartilhar um pouquinho de quem eu sou, das coisas que amo e dos meus sonhos.
+                        Estou aprendendo a criar sites cada vez mais dinâmicos e quero transformar esse aprendizado em novas oportunidades para o futuro!
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-2 mt-4">
+                        <a href="#hobbies" class="btn btn-rosa">
+                            Conheça meu mundo ✨
+                        </a>
+                        <a href="#contato" class="btn btn-filtro">
+                            Falar comigo 💌
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MINHA HISTÓRIA -->
+        <section class="secao revelar" id="historia">
+            <div class="text-center mb-4">
+                <span class="etiqueta">UM POUCO SOBRE MIM</span>
+                <h2 class="titulo-secao display-6">Minha história 🌷</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <article class="cartao p-4 text-center buscavel" data-tags="estudos pedagogia faculdade aprendizado">
+                        <div class="icone-box bg-grad-rosa">
+                            <i class="bi bi-mortarboard-fill"></i>
+                        </div>
+                        <h3 class="h4">Estudos</h3>
+                        <p class="text-muted">
+                            Comecei minha jornada acadêmica em <strong>Pedagogia</strong>, uma área linda ligada ao aprendizado, empatia e desenvolvimento humano.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <article class="cartao p-4 text-center buscavel" data-tags="novos sonhos programacao html css sites">
+                        <div class="icone-box bg-grad-lilas">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3 class="h4">Novos sonhos</h3>
+                        <p class="text-muted">
+                            Estou descobrindo o universo da <strong>programação</strong> e aprendendo a dar vida às minhas próprias páginas na web.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <article class="cartao p-4 text-center buscavel" data-tags="futuro evolucao oportunidades">
+                        <div class="icone-box bg-grad-sol">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h3 class="h4">Meu futuro</h3>
+                        <p class="text-muted">
+                            Quero unir criatividade, educação e tecnologia para evoluir e construir um futuro cheio de possibilidades.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOBBIES COM FILTRO E FOTOS -->
+        <section class="secao revelar" id="hobbies">
+            <div class="text-center mb-4">
+                <span class="etiqueta">COISINHAS QUE AMO</span>
+                <h2 class="titulo-secao display-6">Meus hobbies 🎀</h2>
+
+                <!-- Botões de Filtro -->
+                <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+                    <button type="button" class="btn-filtro ativo" data-filtro="todos">Todos ✨</button>
+                    <button type="button" class="btn-filtro" data-filtro="entretenimento">Música & Séries 🎬</button>
+                    <button type="button" class="btn-filtro" data-filtro="pets">Meus Pets 🐶</button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="lista-hobbies">
+
+                <!-- RBD -->
+                <div class="col-md-4 item-hobby" data-categoria="entretenimento">
+                    <article class="cartao p-4 text-center buscavel" data-tags="musica banda rbd rebelde">
+                        <div class="imagem-hobby-wrapper mb-3" data-bs-toggle="modal" data-bs-target="#modalRBD">
+                            <span class="badge-foto">Clique para ampliar 🔍</span>
+                            <img src="RBD.jpg.jpg"
+                                 onerror="if(this.src.indexOf('rbd.jpg')===-1){this.src='rbd.jpg';}else{this.onerror=null;this.src='https://placehold.co/500x350/ff4785/ffffff?text=RBD+%E2%9D%A4%EF%B8%8F';}"
+                                 alt="Banda RBD" class="imagem-hobby">
+                        </div>
+
+                        <h3 class="h4">Música — RBD 🎤</h3>
+                        <p class="text-muted">
+                            Minha banda favorita é <strong>RBD</strong>! ❤️ Adoro suas músicas e tenho um carinho enorme por essa fase inesquecível.
+                        </p>
+
+                        <button type="button" class="btn btn-rosa mt-auto" data-bs-toggle="modal" data-bs-target="#modalRBD">
+                            Ver foto completa 💗
+                        </button>
+                    </article>
+                </div>
+
+                <!-- FRIENDS -->
+                <div class="col-md-4 item-hobby" data-categoria="entretenimento">
+                    <article class="cartao p-4 text-center buscavel" data-tags="series friends rachel ross monica chandler joey phoebe">
+                        <div class="imagem-hobby-wrapper mb-3" data-bs-toggle="modal" data-bs-target="#modalFriends">
+                            <span class="badge-foto">Clique para ampliar 🔍</span>
+                            <img src="FRIENDS.jpg.jpg"
+                                 onerror="if(this.src.indexOf('friends.jpg')===-1){this.src='friends.jpg';}else{this.onerror=null;this.src='https://placehold.co/500x350/9b5de5/ffffff?text=FRIENDS+%E2%98%95';}"
+                                 alt="Série Friends" class="imagem-hobby">
+                        </div>
+
+                        <h3 class="h4">Séries — Friends 🍿</h3>
+                        <p class="text-muted">
+                            Minha série favorita é <strong>Friends</strong>! ☕ Amo acompanhar as histórias, amizades e dar boas risadas no Central Perk.
+                        </p>
+
+                        <button type="button" class="btn btn-rosa mt-auto" data-bs-toggle="modal" data-bs-target="#modalFriends">
+                            Ver foto completa 💗
+                        </button>
+                    </article>
+                </div>
+
+                <!-- CACHORROS -->
+                <div class="col-md-4 item-hobby" data-categoria="pets">
+                    <article class="cartao p-4 text-center buscavel d-flex flex-column justify-content-between" data-tags="cachorros pets animais quatro patas">
+                        <div>
+                            <div class="icone-box bg-grad-sol mt-3">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
+                            <h3 class="h4">Meus cachorros 🐶</h3>
+                            <p class="text-muted">
+                                Adoro passar tempo brincando e cuidando dos meus companheiros de quatro patas — eles alegram todos os meus dias!
+                            </p>
+                        </div>
+
+                        <button type="button" class="btn btn-rosa" onclick="soltarConfetes(['🐶','🐾','💗','🦴'])">
+                            Mandar carinho 🐾
+                        </button>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MODAL RBD -->
+        <div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 border-0 shadow-lg" style="border-radius: 26px;">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold" id="tituloRBD" style="color: var(--rosa-escuro);">RBD ❤️</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="RBD.jpg.jpg"
+                             onerror="if(this.src.indexOf('rbd.jpg')===-1){this.src='rbd.jpg';}"
+                             alt="Banda RBD" class="img-fluid rounded-4 shadow-sm">
+                        <p class="mt-3 fw-semibold mb-0">Y soy rebelde! RBD sempre no meu coração! ❤️🎤</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL FRIENDS -->
+        <div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 border-0 shadow-lg" style="border-radius: 26px;">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold" id="tituloFriends" style="color: var(--rosa-escuro);">Friends ☕</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="FRIENDS.jpg.jpg"
+                             onerror="if(this.src.indexOf('friends.jpg')===-1){this.src='friends.jpg';}"
+                             alt="Série Friends" class="img-fluid rounded-4 shadow-sm">
+                        <p class="mt-3 fw-semibold mb-0">I'll be there for you! 💗☕</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CURIOSIDADE INTERATIVA -->
+        <section class="secao cartao p-4 p-md-5 text-center revelar buscavel" id="curiosidade" data-tags="curiosidade segredo flamengo">
+            <span class="etiqueta">SEGREDINHO</span>
+            <h2 class="titulo-secao">Uma curiosidade sobre mim! 💕</h2>
+            <p class="text-muted">
+                Tenho várias paixões, mas existe uma que faz meu coração bater mais forte em dia de jogo!
+            </p>
+
+            <button type="button" id="btn-revelar-curiosidade" class="btn btn-rosa">
+                Clique para descobrir 🎁
+            </button>
+
+            <div id="caixa-curiosidade" class="mt-4 p-3 rounded-4 d-none" style="background: #ffe3ee;">
+                <p class="fs-5 fw-bold mb-0" style="color: var(--rosa-escuro);">
+                    Sou apaixonada pelo Flamengo! ❤️🖤 Uma vez Flamengo, sempre Flamengo!
+                </p>
+            </div>
+        </section>
 
         <!-- FLAMENGO -->
+        <section class="secao flamengo p-4 p-md-5 text-center revelar buscavel" id="flamengo" data-tags="flamengo mengao rubro negro futebol">
+            <img src="mengo.jpg.jpeg"
+                 onerror="this.onerror=null; this.src='https://placehold.co/200x200/e31b23/ffffff?text=CRF+%E2%9D%A4%EF%B8%8F%F0%9F%96%A4';"
+                 alt="Flamengo, meu time do coração" class="img-fluid rounded-4 mb-3 shadow"
+                 style="width: 160px; border: 3px solid #ff5964;">
 
-        <section class="secao flamengo p-4 p-md-5 text-center" id="flamengo">
-
-            <img src="mengo.jpg.jpeg" alt="Flamengo, meu time do coração" class="img-fluid rounded mb-3"
-                style="width: 160px;">
-
-            <h2>
+            <h2 class="display-6 fw-bold">
                 Meu coração é rubro-negro! ❤️🖤
             </h2>
 
-            <p>
-
-                Ser Flamengo é muito mais que torcer.
-                É paixão, história e amor que não se explica!
-
+            <p class="lead mx-auto" style="max-width: 620px;">
+                Ser Flamengo é muito mais que torcer. É paixão, história e um amor que não se explica!
             </p>
 
-            <p>
-                <strong>
-                    Uma vez Flamengo, sempre Flamengo!
-                </strong>
+            <p class="fs-5">
+                <strong>Uma vez Flamengo, sempre Flamengo!</strong>
             </p>
 
-            <div class="mt-3">
-
-                <a href="Flamengo.html" target="_blank" class="btn-flamengo m-1">
-
+            <div class="mt-4 d-flex justify-content-center gap-2 flex-wrap">
+                <a href="Flamengo.html" target="_blank" class="btn-flamengo">
                     🔴 Conheça meu mundo rubro-negro
-
                 </a>
 
-                <a href="pdfmengo.pdf" target="_blank" class="btn btn-light rounded-pill m-1">
-
+                <a href="pdfmengo.pdf" target="_blank" class="btn btn-light rounded-pill px-4 py-2 fw-bold">
                     🏆 Mengão do meu coração
-
                 </a>
 
+                <button type="button" class="btn btn-outline-light rounded-pill px-4 py-2 fw-bold" onclick="soltarConfetes(['❤️','🖤','🏆','⚽'])">
+                    Comemorar gol! 🎉
+                </button>
             </div>
-
         </section>
-
 
         <!-- CONTATO -->
-
-        <section class="secao contato text-center" id="contato">
-
-            <span class="etiqueta">
-                VAMOS CONVERSAR?
-            </span>
-
-            <h2 class="titulo-secao">
-                Entre em contato 💌
-            </h2>
-
-            <p class="texto">
-
-                Quer falar comigo? É só escolher uma opção abaixo!
-
+        <section class="secao contato text-center revelar buscavel" id="contato" data-tags="contato email telefone conversar">
+            <span class="etiqueta">VAMOS CONVERSAR?</span>
+            <h2 class="titulo-secao display-6">Entre em contato 💌</h2>
+            <p class="text-muted">
+                Quer falar comigo, trocar ideias sobre sites ou sobre o Mengão? Escolha uma opção abaixo!
             </p>
 
-            <a href="mailto:thaytf15@gmail.com" class="btn btn-rosa m-2">
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+                <a href="mailto:thaytf15@gmail.com" class="btn btn-rosa">
+                    <i class="bi bi-envelope-heart"></i> Enviar e-mail
+                </a>
 
-                <i class="bi bi-envelope"></i>
-                Enviar e-mail
-
-            </a>
-
-            <a href="tel:5548992199253" class="btn btn-rosa m-2">
-
-                <i class="bi bi-telephone"></i>
-                Ligar para mim
-
-            </a>
-
+                <a href="tel:5548992199253" class="btn btn-rosa">
+                    <i class="bi bi-telephone-fill"></i> Ligar para mim
+                </a>
+            </div>
         </section>
 
+        <!-- INSCRIÇÃO INTERATIVA -->
+        <section class="secao formulario text-center revelar" id="inscricao">
+            <span class="etiqueta">CLUBE DA THAY</span>
+            <h2 class="titulo-secao">Faça parte do meu universo! 💗</h2>
 
-        <!-- INSCRIÇÃO -->
+            <form id="form-universo" class="row justify-content-center">
+                <div class="col-md-6">
+                    <label for="nome" class="form-label fw-semibold">Qual é o seu nome?</label>
+                    <input type="text" id="nome" name="nome" class="form-control mb-3 text-center"
+                        placeholder="Digite seu nome aqui..." required>
 
-        <section class="secao formulario text-center" id="inscricao">
-
-            <h2 class="titulo-secao">
-                Faça parte do meu universo! 💗
-            </h2>
-
-            <form action="#" method="get">
-
-                <div class="row justify-content-center">
-
-                    <div class="col-md-6">
-
-                        <label for="nome" class="form-label">
-                            Seu nome:
-                        </label>
-
-                        <input type="text" id="nome" name="nome" class="form-control mb-3" placeholder="Digite seu nome"
-                            required>
-
-                        <button type="submit" class="btn btn-rosa">
-
-                            Enviar 💌
-
-                        </button>
-
-                    </div>
-
+                    <button type="submit" class="btn btn-rosa w-100">
+                        Entrar no universo da Thay 🚀
+                    </button>
                 </div>
-
             </form>
 
+            <div id="mensagem-boas-vindas" class="mt-4 d-none">
+                <div class="p-4 rounded-4 mx-auto" style="max-width: 520px; background: linear-gradient(135deg, #ffe0ee, #f3e5ff); border: 2px solid #ff85a1;">
+                    <h4 class="fw-bold" style="color: var(--rosa-escuro);" id="texto-boas-vindas"></h4>
+                    <p class="mb-0 text-muted">Obrigada por visitar o meu cantinho na internet! ✨💗</p>
+                </div>
+            </div>
         </section>
 
     </main>
 
-
     <!-- RODAPÉ -->
-
     <footer class="text-center" id="rodape">
-
-        <p>
-
-            Feito com
-            <span style="color: #d71960;">♥️</span>
-            por <strong>Thayanne</strong>
-
+        <p class="fs-5 mb-1">
+            Feito com <span style="color: #ff1e6e;">♥️</span> por <strong>Thayanne</strong>
         </p>
+        <p class="mb-1 fw-semibold">© 2026 · Meu universo colorido</p>
+        <p class="small text-muted">Desenvolvido com HTML, CSS, Bootstrap e JavaScript.</p>
 
-        <p>
-            © 2026 · Meu universo cor-de-rosa
-        </p>
-
-        <p class="small">
-            Desenvolvido com HTML, CSS e Bootstrap.
-        </p>
-
-        <a href="#inicio" style="color: var(--rosa-escuro);
-            font-weight: bold;
-            text-decoration: none;">
-
+        <a href="#inicio" class="btn btn-rosa btn-sm mt-2">
             Voltar ao topo ↑
-
         </a>
-
     </footer>
 
-
     <!-- BOOTSTRAP JAVASCRIPT -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- SCRIPTS DE INTERATIVIDADE -->
+    <script>
+        // 1. Barra de progresso da leitura
+        window.addEventListener('scroll', () => {
+            const alturaTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const progresso = (window.scrollY / alturaTotal) * 100;
+            document.getElementById('barra-progresso').style.width = progresso + '%';
+        });
+
+        // 2. Efeito máquina de escrever no Hero
+        const frases = [
+            "futura dev & pedagoga 💻🌷",
+            "apaixonada pelo Mengão ❤️🖤",
+            "fã número 1 de RBD 🎤✨",
+            "viciada em Friends ☕🍿",
+            "mãe de pets de quatro patas 🐶💗"
+        ];
+        let indiceFrase = 0;
+        let indiceLetra = 0;
+        let apagando = false;
+        const elTexto = document.getElementById('maquina-escrever');
+
+        function animarTexto() {
+            const fraseAtual = frases[indiceFrase];
+            if (!apagando) {
+                elTexto.textContent = fraseAtual.substring(0, indiceLetra + 1);
+                indiceLetra++;
+                if (indiceLetra === fraseAtual.length) {
+                    apagando = true;
+                    setTimeout(animarTexto, 1800);
+                    return;
+                }
+            } else {
+                elTexto.textContent = fraseAtual.substring(0, indiceLetra - 1);
+                indiceLetra--;
+                if (indiceLetra === 0) {
+                    apagando = false;
+                    indiceFrase = (indiceFrase + 1) % frases.length;
+                }
+            }
+            setTimeout(animarTexto, apagando ? 45 : 85);
+        }
+        animarTexto();
+
+        // 3. Animação ao rolar a página
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add('visivel');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.revelar').forEach(sec => observador.observe(sec));
+
+        // 4. Filtro dos Hobbies
+        const botoesFiltro = document.querySelectorAll('[data-filtro]');
+        const itensHobby = document.querySelectorAll('.item-hobby');
+
+        botoesFiltro.forEach(botao => {
+            botao.addEventListener('click', () => {
+                botoesFiltro.forEach(b => b.classList.remove('ativo'));
+                botao.classList.add('ativo');
+
+                const categoria = botao.getAttribute('data-filtro');
+                itensHobby.forEach(item => {
+                    if (categoria === 'todos' || item.getAttribute('data-categoria') === categoria) {
+                        item.classList.remove('d-none');
+                    } else {
+                        item.classList.add('d-none');
+                    }
+                });
+            });
+        });
+
+        // 5. Busca dinâmica dentro do site
+        const campoBusca = document.getElementById('campo-busca');
+        const btnLimpar = document.getElementById('btn-limpar-busca');
+        const resultadoBusca = document.getElementById('resultado-busca');
+        const elementosBuscaveis = document.querySelectorAll('.buscavel');
+
+        campoBusca.addEventListener('input', () => {
+            const termo = campoBusca.value.trim().toLowerCase();
+            let encontrados = 0;
+
+            elementosBuscaveis.forEach(el => {
+                el.classList.remove('cartao-destaque');
+                if (termo.length > 0) {
+                    const texto = (el.innerText + ' ' + (el.dataset.tags || '')).toLowerCase();
+                    if (texto.includes(termo)) {
+                        el.classList.add('cartao-destaque');
+                        encontrados++;
+                    }
+                }
+            });
+
+            if (termo.length === 0) {
+                resultadoBusca.textContent = '';
+            } else if (encontrados > 0) {
+                resultadoBusca.textContent = `Encontrei ${encontrados} destaque(s) no site para "${campoBusca.value}"! Veja os cartões iluminados abaixo ✨`;
+            } else {
+                resultadoBusca.textContent = `Nada encontrado para "${campoBusca.value}" por aqui 💭`;
+            }
+        });
+
+        btnLimpar.addEventListener('click', () => {
+            campoBusca.value = '';
+            resultadoBusca.textContent = '';
+            elementosBuscaveis.forEach(el => el.classList.remove('cartao-destaque'));
+        });
+
+        // 6. Curiosidade interativa
+        document.getElementById('btn-revelar-curiosidade').addEventListener('click', function () {
+            const caixa = document.getElementById('caixa-curiosidade');
+            caixa.classList.toggle('d-none');
+            if (!caixa.classList.contains('d-none')) {
+                this.textContent = 'Esconder segredo 🙈';
+                soltarConfetes(['❤️', '🖤', '🔥', '⚽']);
+            } else {
+                this.textContent = 'Clique para descobrir 🎁';
+            }
+        });
+
+        // 7. Formulário de boas-vindas
+        document.getElementById('form-universo').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nomeVisitante = document.getElementById('nome').value.trim();
+            if (!nomeVisitante) return;
+
+            document.getElementById('texto-boas-vindas').textContent =
+                `Que alegria ter você aqui, ${nomeVisitante}! 💖`;
+            document.getElementById('mensagem-boas-vindas').classList.remove('d-none');
+            soltarConfetes(['💗', '✨', '🎉', '🌷', '🎀']);
+            this.reset();
+        });
+
+        // 8. Função de confetes
+        function soltarConfetes(emojis) {
+            for (let i = 0; i < 24; i++) {
+                const confete = document.createElement('div');
+                confete.className = 'confete';
+                confete.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                confete.style.left = Math.random() * 100 + 'vw';
+                confete.style.animationDuration = (2 + Math.random() * 1.8) + 's';
+                document.body.appendChild(confete);
+                setTimeout(() => confete.remove(), 3800);
+            }
+        }
+    </script>
 </body>
 
 </html>
