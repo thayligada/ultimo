@@ -1,355 +1,847 @@
-<!-- ESTILO DOS HOBBIES -->
 
-<style>
-    /* HOBBIES DINÂMICOS */
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    .hobby-card {
-        background: white;
-        border: 1px solid #f8e1eb;
-        border-radius: 22px;
-        overflow: hidden;
-        height: 100%;
-        transition: .4s ease;
-        box-shadow: 0 8px 20px #c65b8315;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .hobby-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px #c65b8330;
-    }
+    <title>Thayanne | Meu Universo 💗</title>
 
-    .hobby-image-wrap {
-        width: 100%;
-        height: 270px;
-        background: #fff0f6;
-        border-radius: 16px;
-        overflow: hidden;
-    }
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    .imagem-hobby {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 16px;
-        cursor: pointer;
-        transition: .4s;
-    }
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 
-    .imagem-hobby:hover {
-        transform: scale(1.05);
-    }
-
-    .hobby-card h3 {
-        color: var(--rosa-escuro);
-        margin-top: 18px;
-    }
-
-    .hobby-hint {
-        color: var(--rosa);
-        font-size: 12px;
-        margin-top: 12px;
-    }
-
-    .hobby-icon {
-        height: 270px;
-        background: #fff0f6;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 75px;
-        color: var(--rosa);
-    }
-
-    @media (max-width: 767px) {
-
-        .hobby-image-wrap,
-        .hobby-icon {
-            height: 240px;
+    <style>
+        :root {
+            --rosa: #c65b83;
+            --rosa-escuro: #a83d68;
+            --rosa-claro: #ffe3ee;
+            --fundo: #fff7fa;
+            --texto: #49343e;
         }
-    }
-</style>
 
+        * {
+            box-sizing: border-box;
+        }
 
-<!-- HOBBIES -->
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
 
-<section class="secao" id="hobbies">
+        body {
+            background: var(--fundo);
+            color: var(--texto);
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
 
-    <div class="text-center mb-4">
+        /* CABEÇALHO */
 
-        <span class="etiqueta">COISINHAS QUE AMO</span>
+        .hero {
+            background: linear-gradient(135deg, #f7b8d0, #c65b83);
+            color: white;
+            padding: 85px 20px;
+        }
 
-        <h2 class="titulo-secao">Meus hobbies 🎀</h2>
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: bold;
+            text-shadow: 2px 3px 5px #963456;
+        }
 
-        <p class="texto">
-            Um pouquinho das coisas que deixam meus dias mais felizes.
+        .subtitulo {
+            letter-spacing: 4px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        /* MENU */
+
+        .navbar {
+            background: white;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: var(--rosa-escuro);
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: var(--rosa);
+        }
+
+        .navbar-toggler {
+            border-color: var(--rosa);
+        }
+
+        /* SEÇÕES */
+
+        .secao {
+            margin-top: 65px;
+        }
+
+        .titulo-secao {
+            color: var(--rosa-escuro);
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            background: var(--rosa-claro);
+            color: var(--rosa-escuro);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* CARTÕES */
+
+        .cartao {
+            background: white;
+            border: 1px solid #f8e1eb;
+            border-radius: 22px;
+            transition: .3s;
+            height: 100%;
+        }
+
+        .cartao:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px #c65b8320;
+        }
+
+        .icone {
+            font-size: 35px;
+            color: var(--rosa);
+        }
+
+        .cartao h3 {
+            color: var(--rosa-escuro);
+        }
+
+        .texto {
+            color: #765e69;
+        }
+
+        /* FOTOS */
+
+        .foto {
+            width: 100%;
+            max-width: 300px;
+            border: 6px solid var(--rosa-claro);
+            border-radius: 25px;
+            box-shadow: 0 8px 20px #c65b8340;
+        }
+
+        .imagem-hobby {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .imagem-hobby:hover {
+            transform: scale(1.04);
+            filter: brightness(1.05);
+        }
+
+        .hobby-card {
+            overflow: hidden;
+        }
+
+        .hobby-card h3 {
+            margin-top: 15px;
+        }
+
+        /* BOTÕES */
+
+        .btn-rosa {
+            background: var(--rosa);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 11px 22px;
+            font-weight: bold;
+        }
+
+        .btn-rosa:hover {
+            background: var(--rosa-escuro);
+            color: white;
+        }
+
+        /* FLAMENGO */
+
+        .flamengo {
+            background: linear-gradient(135deg, #191919, #350909);
+            color: white;
+            border-top: 6px solid #e32636;
+            border-radius: 25px;
+        }
+
+        .flamengo h2 {
+            color: #ff4b55;
+        }
+
+        .btn-flamengo {
+            background: #d71920;
+            color: white;
+            border-radius: 30px;
+            padding: 11px 22px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-flamengo:hover {
+            background: #a90000;
+            color: white;
+        }
+
+        /* FORMULÁRIOS */
+
+        .formulario,
+        .contato {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+        }
+
+        .form-control {
+            border: 1px solid #e7b4c9;
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .form-control:focus {
+            border-color: var(--rosa);
+            box-shadow: 0 0 0 .2rem #c65b8325;
+        }
+
+        /* MODAL DAS FOTOS */
+
+        .modal-content {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .modal-body img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background: #f8dce7;
+            color: #8c4260;
+            padding: 30px 15px;
+            margin-top: 70px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 65px 15px;
+            }
+
+            .imagem-hobby {
+                height: 220px;
+            }
+
+            .formulario,
+            .contato {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="hero text-center" id="inicio">
+
+        <p class="subtitulo">Meu cantinho na internet</p>
+
+        <h1>♡ Oi, eu sou a Thay! ♡</h1>
+
+        <p class="lead">
+            Um pouquinho sobre mim, meus sonhos e minhas paixões.
         </p>
 
-    </div>
+        <a href="#sobre" class="btn btn-light rounded-pill px-4 mt-3">
+            Conheça meu universo ✨
+        </a>
 
-    <div class="row g-4">
+    </header>
 
-        <!-- RBD -->
+    <!-- MENU -->
 
-        <div class="col-md-4">
+    <nav class="navbar navbar-expand-lg sticky-top">
 
-            <article class="hobby-card p-3 text-center">
+        <div class="container">
 
-                <div class="hobby-image-wrap">
+            <a class="navbar-brand" href="#inicio">
+                Thayanne 💗
+            </a>
 
-                    <img src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg" alt="Banda RBD" class="imagem-hobby"
-                        data-bs-toggle="modal" data-bs-target="#modalRBD" loading="lazy">
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false"
+                aria-label="Abrir menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Início</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre mim</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#historia">Minha história</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hobbies">Hobbies</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#flamengo">Flamengo</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <main class="container py-4">
+
+        <!-- BUSCA -->
+
+        <section class="formulario text-center mt-4">
+
+            <h5 class="titulo-secao">
+                <i class="bi bi-search"></i> Buscar no site
+            </h5>
+
+            <form action="https://www.flamengo.com.br/loja"
+                method="get"
+                class="row justify-content-center">
+
+                <div class="col-md-7">
+                    <input type="text" name="q"
+                        class="form-control"
+                        placeholder="Digite sua busca...">
+                </div>
+
+                <div class="col-md-auto mt-2 mt-md-0">
+                    <button class="btn btn-rosa">
+                        Buscar 🔎
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- APRESENTAÇÃO -->
+
+        <section class="secao cartao p-4 p-md-5" id="sobre">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-md-5 text-center">
+
+                    <img src="minha.foto.jpg.png"
+                        alt="Foto da Thayanne"
+                        class="foto">
+
+                    <p class="mt-3" style="color: var(--rosa-escuro)">
+                        Essa sou eu! 💗
+                    </p>
 
                 </div>
 
-                <h3 class="h5">Música 🎤</h3>
+                <div class="col-md-7">
 
-                <p class="texto">
-                    Minha banda favorita é RBD! ❤️
+                    <span class="etiqueta">
+                        ♡ PRAZER, THAYANNE
+                    </span>
 
-                    Adoro suas músicas e tenho um carinho
-                    especial por essa banda.
-                </p>
+                    <h2 class="titulo-secao">
+                        Bem-vindo ao meu universo!
+                    </h2>
 
-                <p class="hobby-hint">
-                    Clique na foto para ampliar ✨
-                </p>
+                    <p class="texto">
+                        Oiii! Meu nome é <strong>Thayanne</strong>,
+                        mas podem me chamar de Thay! 💗
 
-            </article>
+                        Criei este espaço para compartilhar um pouquinho
+                        de quem eu sou, das coisas que amo e dos meus sonhos.
+                    </p>
 
-        </div>
+                    <p class="texto">
+                        Estou aprendendo a criar sites e quero transformar
+                        esse aprendizado em novas oportunidades para o futuro.
+                    </p>
 
-
-        <!-- FRIENDS -->
-
-        <div class="col-md-4">
-
-            <article class="hobby-card p-3 text-center">
-
-                <div class="hobby-image-wrap">
-
-                    <img src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg" alt="Elenco da série Friends"
-                        class="imagem-hobby" data-bs-toggle="modal" data-bs-target="#modalFriends" loading="lazy">
+                    <a href="#hobbies" class="btn btn-rosa mt-2">
+                        Conheça meu mundo ✨
+                    </a>
 
                 </div>
 
-                <h3 class="h5">Séries 🍿</h3>
+            </div>
 
-                <p class="texto">
-                    Minha série favorita é Friends! ☕
+        </section>
 
-                    Amo acompanhar as histórias, amizades
-                    e momentos divertidos.
-                </p>
+        <!-- MINHA HISTÓRIA -->
 
-                <p class="hobby-hint">
-                    Clique na foto para ampliar ✨
-                </p>
+        <section class="secao" id="historia">
 
-            </article>
+            <span class="etiqueta">UM POUCO SOBRE MIM</span>
 
-        </div>
+            <h2 class="titulo-secao">
+                Minha história 🌷
+            </h2>
 
+            <div class="row g-4">
 
-        <!-- CACHORROS -->
+                <div class="col-md-4">
+                    <article class="cartao p-4">
 
-        <div class="col-md-4">
+                        <div class="icone mb-3">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
 
-            <article class="hobby-card p-3 text-center">
+                        <h3 class="h5">Estudos</h3>
 
-                <div class="hobby-icon">
+                        <p class="texto">
+                            Comecei minha jornada acadêmica em Pedagogia,
+                            uma área ligada ao aprendizado e desenvolvimento.
+                        </p>
 
-                    <i class="bi bi-heart-fill"></i>
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <article class="cartao p-4">
+
+                        <div class="icone mb-3">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+
+                        <h3 class="h5">Novos sonhos</h3>
+
+                        <p class="texto">
+                            Estou descobrindo o mundo da programação
+                            e aprendendo a criar minhas próprias páginas.
+                        </p>
+
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <article class="cartao p-4">
+
+                        <div class="icone mb-3">
+                            <i class="bi bi-butterfly"></i>
+                        </div>
+
+                        <h3 class="h5">Meu futuro</h3>
+
+                        <p class="texto">
+                            Quero aprender coisas novas, evoluir e
+                            construir um futuro cheio de possibilidades.
+                        </p>
+
+                    </article>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- HOBBIES -->
+
+        <section class="secao" id="hobbies">
+
+            <span class="etiqueta">
+                COISINHAS QUE AMO
+            </span>
+
+            <h2 class="titulo-secao">
+                Meus hobbies 🎀
+            </h2>
+
+            <div class="row g-4">
+
+                <!-- RBD -->
+
+                <div class="col-md-4">
+
+                    <article class="cartao hobby-card p-4 text-center">
+
+                        <img
+                            src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg"
+                            alt="Minha foto do RBD"
+                            class="imagem-hobby mb-3"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalRBD">
+
+                        <h3 class="h5">Música 🎤</h3>
+
+                        <p class="texto">
+                            Minha banda favorita é RBD! ❤️
+                            Adoro suas músicas e tenho um carinho
+                            especial por essa banda.
+                        </p>
+
+                        <small class="texto">
+                            Clique na foto para ampliar 💗
+                        </small>
+
+                    </article>
 
                 </div>
 
-                <h3 class="h5">Meus cachorros 🐶</h3>
+                <!-- FRIENDS -->
 
-                <p class="texto">
-                    Adoro brincar com meus companheiros
-                    de quatro patas.
-                </p>
+                <div class="col-md-4">
 
-                <p class="hobby-hint">
-                    Amor em forma de patinhas 💗
-                </p>
+                    <article class="cartao hobby-card p-4 text-center">
 
-            </article>
+                        <img
+                            src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg"
+                            alt="Minha foto da série Friends"
+                            class="imagem-hobby mb-3"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalFriends">
 
-        </div>
+                        <h3 class="h5">Séries 🍿</h3>
 
-    </div>
+                        <p class="texto">
+                            Minha série favorita é Friends! ☕
+                            Amo acompanhar as histórias, amizades
+                            e momentos divertidos.
+                        </p>
 
-</section>
+                        <small class="texto">
+                            Clique na foto para ampliar 💗
+                        </small>
 
+                    </article>
 
-<!-- MODAL RBD -->
+                </div>
 
-<div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
+                <!-- CACHORROS -->
 
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="col-md-4">
 
-        <div class="modal-content p-3">
+                    <article class="cartao p-4 text-center">
 
-            <div class="modal-header border-0">
+                        <div class="icone mb-3">
+                            <i class="bi bi-heart"></i>
+                        </div>
 
-                <h5 class="modal-title" id="tituloRBD">
-                    RBD ❤️
-                </h5>
+                        <h3 class="h5">Meus cachorros 🐶</h3>
 
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                </button>
+                        <p class="texto">
+                            Adoro brincar com meus companheiros
+                            de quatro patas.
+                        </p>
 
-            </div>
+                    </article>
 
-            <div class="modal-body text-center">
-
-                <img src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg" alt="Banda RBD" class="img-fluid rounded"
-                    style="max-height: 75vh; object-fit: contain;">
-
-                <p class="mt-3">
-                    RBD no meu coração! ❤️
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- MODAL FRIENDS -->
-
-<div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
-
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-
-        <div class="modal-content p-3">
-
-            <div class="modal-header border-0">
-
-                <h5 class="modal-title" id="tituloFriends">
-                    Friends ☕
-                </h5>
-
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                </button>
+                </div>
 
             </div>
 
-            <div class="modal-body text-center">
+        </section>
 
-                <img src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg" alt="Elenco da série Friends"
-                    class="img-fluid rounded" style="max-height: 75vh; object-fit: contain;">
+        <!-- MODAL RBD -->
 
-                <p class="mt-3">
-                    I'll be there for you! 💗
-                </p>
+        <div class="modal fade" id="modalRBD" tabindex="-1"
+            aria-labelledby="tituloRBD" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                <div class="modal-content p-3">
+
+                    <div class="modal-header border-0">
+
+                        <h5 class="modal-title" id="tituloRBD">
+                            RBD ❤️
+                        </h5>
+
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Fechar">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body text-center">
+
+                        <img
+                            src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg"
+                            alt="Banda RBD">
+
+                        <p class="mt-3">
+                            RBD no meu coração! ❤️
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- MODAL FRIENDS -->
 
-</div>
+        <div class="modal fade" id="modalFriends" tabindex="-1"
+            aria-labelledby="tituloFriends" aria-hidden="true">
 
-<!-- CACHORROS -->
+            <div class="modal-dialog modal-dialog-centered modal-lg">
 
-<div class="col-md-4">
+                <div class="modal-content p-3">
 
-    <article class="cartao p-4 text-center">
+                    <div class="modal-header border-0">
 
-        <div class="icone mb-3">
-            <i class="bi bi-heart"></i>
+                        <h5 class="modal-title" id="tituloFriends">
+                            Friends ☕
+                        </h5>
+
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Fechar">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body text-center">
+
+                        <img
+                            src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg"
+                            alt="Série Friends">
+
+                        <p class="mt-3">
+                            I'll be there for you! 💗
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <h3 class="h5">Meus cachorros 🐶</h3>
+        <!-- CURIOSIDADE -->
 
-        <p class="texto">
-            Adoro brincar com meus companheiros
-            de quatro patas.
+        <section class="secao cartao p-4" id="curiosidade">
+
+            <h2 class="titulo-secao">
+                Uma curiosidade sobre mim! 💕
+            </h2>
+
+            <p class="texto">
+                Tenho várias paixões, mas existe uma que ocupa
+                um espaço especial no meu coração!
+            </p>
+
+            <details>
+
+                <summary style="color: var(--rosa-escuro); cursor: pointer;">
+                    Clique para descobrir!
+                </summary>
+
+                <p class="texto mt-3">
+                    Sou apaixonada pelo Flamengo!
+                    ❤️🖤 Uma vez Flamengo, sempre Flamengo!
+                </p>
+
+            </details>
+
+        </section>
+
+        <!-- FLAMENGO -->
+
+        <section class="secao flamengo p-4 p-md-5 text-center"
+            id="flamengo">
+
+            <img src="mengo.jpg.jpeg"
+                alt="Flamengo, meu time do coração"
+                class="img-fluid rounded mb-3"
+                style="width: 160px;">
+
+            <h2>
+                Meu coração é rubro-negro! ❤️🖤
+            </h2>
+
+            <p>
+                Ser Flamengo é muito mais que torcer.
+                É paixão, história e amor que não se explica!
+            </p>
+
+            <p>
+                <strong>
+                    Uma vez Flamengo, sempre Flamengo!
+                </strong>
+            </p>
+
+            <div class="mt-3">
+
+                <a href="Flamengo.html" target="_blank"
+                    class="btn-flamengo m-1">
+
+                    🔴 Conheça meu mundo rubro-negro
+
+                </a>
+
+                <a href="pdfmengo.pdf" target="_blank"
+                    class="btn btn-light rounded-pill m-1">
+
+                    🏆 Mengão do meu coração
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- CONTATO -->
+
+        <section class="secao contato text-center" id="contato">
+
+            <span class="etiqueta">
+                VAMOS CONVERSAR?
+            </span>
+
+            <h2 class="titulo-secao">
+                Entre em contato 💌
+            </h2>
+
+            <p class="texto">
+                Quer falar comigo? É só escolher uma opção abaixo!
+            </p>
+
+            <a href="mailto:thaytf15@gmail.com"
+                class="btn btn-rosa m-2">
+
+                <i class="bi bi-envelope"></i>
+                Enviar e-mail
+
+            </a>
+
+            <a href="tel:5548992199253"
+                class="btn btn-rosa m-2">
+
+                <i class="bi bi-telephone"></i>
+                Ligar para mim
+
+            </a>
+
+        </section>
+
+        <!-- INSCRIÇÃO -->
+
+        <section class="secao formulario text-center"
+            id="inscricao">
+
+            <h2 class="titulo-secao">
+                Faça parte do meu universo! 💗
+            </h2>
+
+            <form action="#" method="get">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-md-6">
+
+                        <label for="nome" class="form-label">
+                            Seu nome:
+                        </label>
+
+                        <input type="text" id="nome" name="nome"
+                            class="form-control mb-3"
+                            placeholder="Digite seu nome"
+                            required>
+
+                        <button type="submit" class="btn btn-rosa">
+                            Enviar 💌
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer class="text-center" id="rodape">
+
+        <p>
+            Feito com
+            <span style="color: #d71960;">♥️</span>
+            por <strong>Thayanne</strong>
         </p>
 
-    </article>
+        <p>
+            © 2026 · Meu universo cor-de-rosa
+        </p>
 
-</div>
+        <p class="small">
+            Desenvolvido com HTML, CSS e Bootstrap.
+        </p>
 
-</div>
+        <a href="#inicio"
+            style="color: var(--rosa-escuro);
+            font-weight: bold;
+            text-decoration: none;">
 
-</section>
+            Voltar ao topo ↑
 
+        </a>
 
-<!-- MODAL RBD -->
+    </footer>
 
-<div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
+    <!-- BOOTSTRAP JAVASCRIPT -->
 
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-        <div class="modal-content p-3">
-
-            <div class="modal-header border-0">
-
-                <h5 class="modal-title" id="tituloRBD">
-                    RBD ❤️
-                </h5>
-
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                </button>
-
-            </div>
-
-            <div class="modal-body text-center">
-
-                <img src="4d18e79c-f3f1-448f-8d36-f57582f17016.jpeg" alt="Banda RBD" class="img-fluid rounded">
-
-                <p class="mt-3">
-                    RBD no meu coração! ❤️
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- MODAL FRIENDS -->
-
-<div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
-
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-
-        <div class="modal-content p-3">
-
-            <div class="modal-header border-0">
-
-                <h5 class="modal-title" id="tituloFriends">
-                    Friends ☕
-                </h5>
-
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                </button>
-
-            </div>
-
-            <div class="modal-body text-center">
-
-                <img src="6b035f6d-c1d9-4623-9449-a8fc8f385c0c.jpeg" alt="Elenco da série Friends"
-                    class="img-fluid rounded">
-
-                <p class="mt-3">
-                    I'll be there for you! 💗
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
+</body>
+</html>
