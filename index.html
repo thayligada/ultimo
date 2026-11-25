@@ -5,1701 +5,365 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Thayanne | Meu Universo 💗</title>
+    <title>Minha Store - Loja Virtual</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
     <style>
-        :root {
-            --rosa: #c65b83;
-            --rosa-escuro: #a83d68;
-            --rosa-claro: #ffe3ee;
-            --fundo: #fff7fa;
-            --texto: #49343e;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
         body {
-            background: var(--fundo);
-            color: var(--texto);
+            background: #f8f9fa;
             font-family: Arial, sans-serif;
-            line-height: 1.7;
         }
-
-        /* CABEÇALHO */
-
-        .hero {
-            background: linear-gradient(135deg, #f7b8d0, #c65b83);
-            color: white;
-            padding: 85px 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: bold;
-            text-shadow: 2px 3px 5px #963456;
-        }
-
-        .subtitulo {
-            letter-spacing: 4px;
-            font-size: 13px;
-            text-transform: uppercase;
-        }
-
-        /* MENU */
 
         .navbar {
-            background: white;
-            box-shadow: 0 3px 12px #00000010;
+            background: #172554;
         }
 
-        .navbar-brand,
-        .nav-link {
-            color: var(--rosa-escuro);
+        .navbar-brand {
             font-weight: bold;
+            color: white !important;
+            font-size: 24px;
         }
 
-        .nav-link:hover {
-            color: var(--rosa);
+        .hero {
+            background: linear-gradient(120deg, #172554, #2563eb);
+            color: white;
+            padding: 90px 20px;
+            border-radius: 0 0 30px 30px;
         }
 
-        .navbar-toggler {
-            border-color: var(--rosa);
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
         }
 
-        /* SEÇÕES */
-
-        .secao {
-            margin-top: 65px;
-        }
-
-        .titulo-secao {
-            color: var(--rosa-escuro);
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
-        .etiqueta {
-            display: inline-block;
-            background: var(--rosa-claro);
-            color: var(--rosa-escuro);
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        /* CARTÕES */
-
-        .cartao {
-            background: white;
-            border: 1px solid #f8e1eb;
-            border-radius: 22px;
-            transition: .3s;
-            height: 100%;
-        }
-
-        .cartao:hover {
+        .product-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 10px 25px #c65b8320;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
         }
 
-        .icone {
-            font-size: 35px;
-            color: var(--rosa);
-        }
-
-        .cartao h3 {
-            color: var(--rosa-escuro);
-        }
-
-        .texto {
-            color: #765e69;
-        }
-
-        /* FOTOS */
-
-        .foto {
-            width: 100%;
-            max-width: 300px;
-            border: 6px solid var(--rosa-claro);
-            border-radius: 25px;
-            box-shadow: 0 8px 20px #c65b8340;
-        }
-
-        .imagem-hobby {
-            width: 100%;
+        .product-card img {
             height: 220px;
             object-fit: cover;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: .3s;
         }
 
-        .imagem-hobby:hover {
-            transform: scale(1.03);
+        .price {
+            color: #198754;
+            font-size: 22px;
+            font-weight: bold;
         }
 
-        /* BOTÕES */
-
-        .btn-rosa {
-            background: var(--rosa);
-            color: white;
+        .btn-primary {
+            background: #2563eb;
             border: none;
-            border-radius: 30px;
-            padding: 11px 22px;
-            font-weight: bold;
         }
-
-        .btn-rosa:hover {
-            background: var(--rosa-escuro);
-            color: white;
-        }
-
-        /* FLAMENGO */
-
-        .flamengo {
-            background: linear-gradient(135deg, #191919, #350909);
-            color: white;
-            border-top: 6px solid #e32636;
-            border-radius: 25px;
-        }
-
-        .flamengo h2 {
-            color: #ff4b55;
-        }
-
-        .btn-flamengo {
-            background: #d71920;
-            color: white;
-            border-radius: 30px;
-            padding: 11px 22px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .btn-flamengo:hover {
-            background: #a90000;
-            color: white;
-        }
-
-        /* FORMULÁRIOS */
-
-        .formulario,
-        .contato {
-            background: white;
-            border-radius: 22px;
-            padding: 35px;
-        }
-
-        .form-control {
-            border: 1px solid #e7b4c9;
-            border-radius: 12px;
-            padding: 12px;
-        }
-
-        .form-control:focus {
-            border-color: var(--rosa);
-            box-shadow: 0 0 0 .2rem #c65b8325;
-        }
-
-        /* MODAIS */
-
-        .modal-content {
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .modal-body img {
-            width: 100%;
-            border-radius: 12px;
-        }
-
-        /* RODAPÉ */
 
         footer {
-            background: #f8dce7;
-            color: #8c4260;
-            padding: 30px 15px;
-            margin-top: 70px;
+            background: #172554;
+            color: white;
+            padding: 30px;
+            margin-top: 60px;
         }
     </style>
-
 </head>
 
 <body>
 
-    <!-- CABEÇALHO -->
-
-    <header class="hero text-center" id="inicio">
-
-        <p class="subtitulo">Meu cantinho na internet</p>
-
-        <h1>♡ Oi, eu sou a Thay! ♡</h1>
-
-        <p class="lead">
-            Um pouquinho sobre mim, meus sonhos e minhas paixões.
-        </p>
-
-        <a href="#sobre" class="btn btn-light rounded-pill px-4 mt-3">
-            Conheça meu universo ✨
-        </a>
-
-    </header>
-
-
-    <!-- MENU -->
-
-    <nav class="navbar navbar-expand-lg sticky-top">
-
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
 
-            <a class="navbar-brand" href="#inicio">
-                Thayanne 💗
-            </a>
+            <a class="navbar-brand" href="#">MINHA STORE</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-                aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
-
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
                 <span class="navbar-toggler-icon"></span>
-
             </button>
 
             <div class="collapse navbar-collapse" id="menu">
 
                 <ul class="navbar-nav ms-auto">
-
                     <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Início</a>
+                        <a class="nav-link" href="#">Início</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Sobre mim</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#historia">Minha história</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hobbies">Hobbies</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#flamengo">Flamengo</a>
+                        <a class="nav-link" href="#produtos">Produtos</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#contato">Contato</a>
                     </li>
-
                 </ul>
 
+                <button class="btn btn-outline-light ms-lg-3" data-bs-toggle="modal" data-bs-target="#carrinho">
+                    <i class="bi bi-cart"></i>
+                    Carrinho (<span id="quantidade">0</span>)
+                </button>
+
             </div>
-
         </div>
-
     </nav>
 
-
-    <main class="container py-4">
-
-
-        <!-- BUSCA -->
-
-        <section class="formulario text-center mt-4">
-
-            <h5 class="titulo-secao">
-                <i class="bi bi-search"></i> Buscar no site
-            </h5>
-
-            <form action="https://www.flamengo.com.br/loja" method="get" class="row justify-content-center">
-
-                <div class="col-md-7">
-
-                    <input type="text" name="q" class="form-control" placeholder="Digite sua busca...">
-
-                </div>
-
-                <div class="col-md-auto mt-2 mt-md-0">
-
-                    <button class="btn btn-rosa">
-                        Buscar 🔎
-                    </button>
-
-                </div>
-
-            </form>
-
-        </section>
-
-
-        <!-- APRESENTAÇÃO -->
-
-        <section class="secao cartao p-4 p-md-5" id="sobre">
-
-            <div class="row align-items-center g-4">
-
-                <div class="col-md-5 text-center">
-
-                    <img src="minha.foto.jpg.png" alt="Foto da Thayanne" class="foto">
-
-                    <p class="mt-3" style="color: var(--rosa-escuro)">
-                        Essa sou eu! 💗
-                    </p>
-
-                </div>
-
-                <div class="col-md-7">
-
-                    <span class="etiqueta">
-                        ♡ PRAZER, THAYANNE
-                    </span>
-
-                    <h2 class="titulo-secao">
-                        Bem-vindo ao meu universo!
-                    </h2>
-
-                    <p class="texto">
-
-                        Oiii! Meu nome é <strong>Thayanne</strong>,
-                        mas podem me chamar de Thay! 💗
-
-                        Criei este espaço para compartilhar um pouquinho
-                        de quem eu sou, das coisas que amo e dos meus sonhos.
-
-                    </p>
-
-                    <p class="texto">
-
-                        Estou aprendendo a criar sites e quero transformar
-                        esse aprendizado em novas oportunidades para o futuro.
-
-                    </p>
-
-                    <a href="#hobbies" class="btn btn-rosa mt-2">
-                        Conheça meu mundo ✨
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MINHA HISTÓRIA -->
-
-        <section class="secao" id="historia">
-
-            <span class="etiqueta">UM POUCO SOBRE MIM</span>
-
-            <h2 class="titulo-secao">
-                Minha história 🌷
-            </h2>
-
-            <div class="row g-4">
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-mortarboard"></i>
-                        </div>
-
-                        <h3 class="h5">Estudos</h3>
-
-                        <p class="texto">
-
-                            Comecei minha jornada acadêmica em Pedagogia,
-                            uma área ligada ao aprendizado e desenvolvimento.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-laptop"></i>
-                        </div>
-
-                        <h3 class="h5">Novos sonhos</h3>
-
-                        <p class="texto">
-
-                            Estou descobrindo o mundo da programação
-                            e aprendendo a criar minhas próprias páginas.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-butterfly"></i>
-                        </div>
-
-                        <h3 class="h5">Meu futuro</h3>
-
-                        <p class="texto">
-
-                            Quero aprender coisas novas, evoluir e
-                            construir um futuro cheio de possibilidades.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- HOBBIES -->
-
-        <section class="secao" id="hobbies">
-
-            <span class="etiqueta">
-                COISINHAS QUE AMO
-            </span>
-
-            <h2 class="titulo-secao">
-                Meus hobbies 🎀
-            </h2>
-
-            <div class="row g-4">
-
-
-                <!-- RBD -->
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4 text-center">
-
-                        <img src="rbd.jpg" alt="Banda RBD" class="imagem-hobby mb-3" data-bs-toggle="modal"
-                            data-bs-target="#modalRBD">
-
-                        <h3 class="h5">Música 🎤</h3>
-
-                        <p class="texto">
-
-                            Minha banda favorita é RBD! ❤️
-                            Adoro suas músicas e tenho um carinho
-                            especial por essa banda.
-
-                        </p>
-
-                        <button class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalRBD">
-
-                            Ver imagem 💗
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- FRIENDS -->
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4 text-center">
-
-                        <img src="friends.jpg" alt="Capa da série Friends" class="imagem-hobby mb-3"
-                            data-bs-toggle="modal" data-bs-target="#modalFriends">
-
-                        <h3 class="h5">Séries 🍿</h3>
-
-                        <p class="texto">
-
-                            Minha série favorita é Friends! ☕
-                            Amo acompanhar as histórias, amizades
-                            e momentos divertidos.
-
-                        </p>
-
-                        <button class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalFriends">
-
-                            Ver imagem 💗
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- CACHORROS -->
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4 text-center">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-heart"></i>
-                        </div>
-
-                        <h3 class="h5">Meus cachorros 🐶</h3>
-
-                        <p class="texto">
-
-                            Adoro brincar com meus companheiros
-                            de quatro patas.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MODAL RBD -->
-
-        <div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered">
-
-                <div class="modal-content p-3">
-
-                    <div class="modal-header border-0">
-
-                        <h5 class="modal-title" id="tituloRBD">
-                            RBD ❤️
-                        </h5>
-
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                        </button>
-
-                    </div>
-
-                    <div class="modal-body text-center">
-
-                        <img src="rbd.jpg" alt="Banda RBD">
-
-                        <p class="mt-3">
-                            RBD no meu coração! ❤️
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- MODAL FRIENDS -->
-
-        <div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered">
-
-                <div class="modal-content p-3">
-
-                    <div class="modal-header border-0">
-
-                        <h5 class="modal-title" id="tituloFriends">
-                            Friends ☕
-                        </h5>
-
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                        </button>
-
-                    </div>
-
-                    <div class="modal-body text-center">
-
-                        <img src="friends.jpg" alt="Capa da série Friends">
-
-                        <p class="mt-3">
-                            I'll be there for you! 💗
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CURIOSIDADE -->
-
-        <section class="secao cartao p-4" id="curiosidade">
-
-            <h2 class="titulo-secao">
-                Uma curiosidade sobre mim! 💕
-            </h2>
-
-            <p class="texto">
-
-                Tenho várias paixões, mas existe uma que ocupa
-                um espaço especial no meu coração!
-
-            </p>
-
-            <details>
-
-                <summary style="color: var(--rosa-escuro); cursor: pointer;">
-                    Clique para descobrir!
-                </summary>
-
-                <p class="texto mt-3">
-
-                    Sou apaixonada pelo Flamengo!
-                    ❤️🖤 Uma vez Flamengo, sempre Flamengo!
-
-                </p>
-
-            </details>
-
-        </section>
-
-
-        <!-- FLAMENGO -->
-
-        <section class="secao flamengo p-4 p-md-5 text-center" id="flamengo">
-
-            <img src="mengo.jpg.jpeg" alt="Flamengo, meu time do coração" class="img-fluid rounded mb-3"
-                style="width: 160px;">
-
-            <h2>
-                Meu coração é rubro-negro! ❤️🖤
-            </h2>
-
-            <p>
-
-                Ser Flamengo é muito mais que torcer.
-                É paixão, história e amor que não se explica!
-
-            </p>
-
-            <p>
-                <strong>
-                    Uma vez Flamengo, sempre Flamengo!
-                </strong>
-            </p>
-
-            <div class="mt-3">
-
-                <a href="Flamengo.html" target="_blank" class="btn-flamengo m-1">
-
-                    🔴 Conheça meu mundo rubro-negro
-
-                </a>
-
-                <a href="pdfmengo.pdf" target="_blank" class="btn btn-light rounded-pill m-1">
-
-                    🏆 Mengão do meu coração
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTATO -->
-
-        <section class="secao contato text-center" id="contato">
-
-            <span class="etiqueta">
-                VAMOS CONVERSAR?
-            </span>
-
-            <h2 class="titulo-secao">
-                Entre em contato 💌
-            </h2>
-
-            <p class="texto">
-
-                Quer falar comigo? É só escolher uma opção abaixo!
-
-            </p>
-
-            <a href="mailto:thaytf15@gmail.com" class="btn btn-rosa m-2">
-
-                <i class="bi bi-envelope"></i>
-                Enviar e-mail
-
-            </a>
-
-            <a href="tel:5548992199253" class="btn btn-rosa m-2">
-
-                <i class="bi bi-telephone"></i>
-                Ligar para mim
-
-            </a>
-
-        </section>
-
-
-        <!-- INSCRIÇÃO -->
-
-        <section class="secao formulario text-center" id="inscricao">
-
-            <h2 class="titulo-secao">
-                Faça parte do meu universo! 💗
-            </h2>
-
-            <form action="#" method="get">
-
-                <div class="row justify-content-center">
-
-                    <div class="col-md-6">
-
-                        <label for="nome" class="form-label">
-                            Seu nome:
-                        </label>
-
-                        <input type="text" id="nome" name="nome" class="form-control mb-3" placeholder="Digite seu nome"
-                            required>
-
-                        <button type="submit" class="btn btn-rosa">
-
-                            Enviar 💌
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </form>
-
-        </section>
-
-    </main>
-
-
-    <!-- RODAPÉ -->
-
-    <footer class="text-center" id="rodape">
-
-        <p>
-
-            Feito com
-            <span style="color: #d71960;">♥️</span>
-            por <strong>Thayanne</strong>
-
-        </p>
-
-        <p>
-            © 2026 · Meu universo cor-de-rosa
-        </p>
-
-        <p class="small">
-            Desenvolvido com HTML, CSS e Bootstrap.
-        </p>
-
-        <a href="#inicio" style="color: var(--rosa-escuro);
-            font-weight: bold;
-            text-decoration: none;">
-
-            Voltar ao topo ↑
-
-        </a>
-
-    </footer>
-
-
-    <!-- BOOTSTRAP JAVASCRIPT -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Thayanne | Meu Universo 💗</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
-
-    <style>
-        :root {
-            --rosa: #c65b83;
-            --rosa-escuro: #a83d68;
-            --rosa-claro: #ffe3ee;
-            --fundo: #fff7fa;
-            --texto: #49343e;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            background: var(--fundo);
-            color: var(--texto);
-            font-family: Arial, sans-serif;
-            line-height: 1.7;
-        }
-
-        /* CABEÇALHO */
-
-        .hero {
-            background: linear-gradient(135deg, #f7b8d0, #c65b83);
-            color: white;
-            padding: 85px 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: bold;
-            text-shadow: 2px 3px 5px #963456;
-        }
-
-        .subtitulo {
-            letter-spacing: 4px;
-            font-size: 13px;
-            text-transform: uppercase;
-        }
-
-        /* MENU */
-
-        .navbar {
-            background: white;
-            box-shadow: 0 3px 12px #00000010;
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: var(--rosa-escuro);
-            font-weight: bold;
-        }
-
-        .nav-link:hover {
-            color: var(--rosa);
-        }
-
-        .navbar-toggler {
-            border-color: var(--rosa);
-        }
-
-        /* SEÇÕES */
-
-        .secao {
-            margin-top: 65px;
-        }
-
-        .titulo-secao {
-            color: var(--rosa-escuro);
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
-        .etiqueta {
-            display: inline-block;
-            background: var(--rosa-claro);
-            color: var(--rosa-escuro);
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        /* CARTÕES */
-
-        .cartao {
-            background: white;
-            border: 1px solid #f8e1eb;
-            border-radius: 22px;
-            transition: .3s;
-            height: 100%;
-        }
-
-        .cartao:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 25px #c65b8320;
-        }
-
-        .icone {
-            font-size: 35px;
-            color: var(--rosa);
-        }
-
-        .cartao h3 {
-            color: var(--rosa-escuro);
-        }
-
-        .texto {
-            color: #765e69;
-        }
-
-        /* FOTOS */
-
-        .foto {
-            width: 100%;
-            max-width: 300px;
-            border: 6px solid var(--rosa-claro);
-            border-radius: 25px;
-            box-shadow: 0 8px 20px #c65b8340;
-        }
-
-        .imagem-hobby {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .imagem-hobby:hover {
-            transform: scale(1.03);
-        }
-
-        /* BOTÕES */
-
-        .btn-rosa {
-            background: var(--rosa);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            padding: 11px 22px;
-            font-weight: bold;
-        }
-
-        .btn-rosa:hover {
-            background: var(--rosa-escuro);
-            color: white;
-        }
-
-        /* FLAMENGO */
-
-        .flamengo {
-            background: linear-gradient(135deg, #191919, #350909);
-            color: white;
-            border-top: 6px solid #e32636;
-            border-radius: 25px;
-        }
-
-        .flamengo h2 {
-            color: #ff4b55;
-        }
-
-        .btn-flamengo {
-            background: #d71920;
-            color: white;
-            border-radius: 30px;
-            padding: 11px 22px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .btn-flamengo:hover {
-            background: #a90000;
-            color: white;
-        }
-
-        /* FORMULÁRIOS */
-
-        .formulario,
-        .contato {
-            background: white;
-            border-radius: 22px;
-            padding: 35px;
-        }
-
-        .form-control {
-            border: 1px solid #e7b4c9;
-            border-radius: 12px;
-            padding: 12px;
-        }
-
-        .form-control:focus {
-            border-color: var(--rosa);
-            box-shadow: 0 0 0 .2rem #c65b8325;
-        }
-
-        /* MODAIS */
-
-        .modal-content {
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .modal-body img {
-            width: 100%;
-            border-radius: 12px;
-        }
-
-        /* RODAPÉ */
-
-        footer {
-            background: #f8dce7;
-            color: #8c4260;
-            padding: 30px 15px;
-            margin-top: 70px;
-        }
-    </style>
-
-</head>
-
-<body>
-
-    <!-- CABEÇALHO -->
-
-    <header class="hero text-center" id="inicio">
-
-        <p class="subtitulo">Meu cantinho na internet</p>
-
-        <h1>♡ Oi, eu sou a Thay! ♡</h1>
-
-        <p class="lead">
-            Um pouquinho sobre mim, meus sonhos e minhas paixões.
-        </p>
-
-        <a href="#sobre" class="btn btn-light rounded-pill px-4 mt-3">
-            Conheça meu universo ✨
-        </a>
-
-    </header>
-
-
-    <!-- MENU -->
-
-    <nav class="navbar navbar-expand-lg sticky-top">
-
+    <!-- BANNER -->
+    <section class="hero text-center">
         <div class="container">
 
-            <a class="navbar-brand" href="#inicio">
-                Thayanne 💗
+            <h1 class="display-4 fw-bold">
+                Bem-vindo à Minha Store!
+            </h1>
+
+            <p class="lead">
+                Encontre os melhores produtos com preços especiais.
+            </p>
+
+            <a href="#produtos" class="btn btn-light btn-lg mt-3">
+                Comprar agora
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-                aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        </div>
+    </section>
 
-                <span class="navbar-toggler-icon"></span>
+    <!-- PRODUTOS -->
+    <section class="container my-5" id="produtos">
 
-            </button>
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Nossos Produtos</h2>
+            <p class="text-muted">Confira nossas ofertas especiais</p>
+        </div>
 
-            <div class="collapse navbar-collapse" id="menu">
+        <div class="row g-4">
 
-                <ul class="navbar-nav ms-auto">
+            <!-- Produto 1 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card product-card shadow-sm h-100">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Início</a>
-                    </li>
+                    <img src="https://placehold.co/500x400?text=Tenis" class="card-img-top" alt="Tênis">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Sobre mim</a>
-                    </li>
+                    <div class="card-body text-center">
+                        <h5>Tênis Casual</h5>
+                        <p class="price">R$ 199,90</p>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#historia">Minha história</a>
-                    </li>
+                        <button class="btn btn-primary w-100" onclick="adicionar('Tênis Casual', 199.90)">
+                            <i class="bi bi-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hobbies">Hobbies</a>
-                    </li>
+            <!-- Produto 2 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card product-card shadow-sm h-100">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#flamengo">Flamengo</a>
-                    </li>
+                    <img src="https://placehold.co/500x400?text=Relogio" class="card-img-top" alt="Relógio">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
+                    <div class="card-body text-center">
+                        <h5>Relógio Moderno</h5>
+                        <p class="price">R$ 249,90</p>
 
-                </ul>
+                        <button class="btn btn-primary w-100" onclick="adicionar('Relógio Moderno', 249.90)">
+                            <i class="bi bi-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Produto 3 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card product-card shadow-sm h-100">
+
+                    <img src="https://placehold.co/500x400?text=Bolsa" class="card-img-top" alt="Bolsa">
+
+                    <div class="card-body text-center">
+                        <h5>Bolsa Feminina</h5>
+                        <p class="price">R$ 159,90</p>
+
+                        <button class="btn btn-primary w-100" onclick="adicionar('Bolsa Feminina', 159.90)">
+                            <i class="bi bi-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card product-card shadow-sm h-100">
+
+                    <img src="https://placehold.co/500x400?text=Fone" class="card-img-top" alt="Fone">
+
+                    <div class="card-body text-center">
+                        <h5>Fone Bluetooth</h5>
+                        <p class="price">R$ 129,90</p>
+
+                        <button class="btn btn-primary w-100" onclick="adicionar('Fone Bluetooth', 129.90)">
+                            <i class="bi bi-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </div>
+    </section>
 
-    </nav>
+    <!-- MODAL CARRINHO -->
+    <div class="modal fade" id="carrinho" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-cart"></i> Meu Carrinho
+                    </h5>
 
-    <main class="container py-4">
-
-
-        <!-- BUSCA -->
-
-        <section class="formulario text-center mt-4">
-
-            <h5 class="titulo-secao">
-                <i class="bi bi-search"></i> Buscar no site
-            </h5>
-
-            <form action="https://www.flamengo.com.br/loja" method="get" class="row justify-content-center">
-
-                <div class="col-md-7">
-
-                    <input type="text" name="q" class="form-control" placeholder="Digite sua busca...">
-
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-                <div class="col-md-auto mt-2 mt-md-0">
+                <div class="modal-body">
+                    <div id="itensCarrinho">
+                        Seu carrinho está vazio.
+                    </div>
 
-                    <button class="btn btn-rosa">
-                        Buscar 🔎
+                    <hr>
+
+                    <h5 class="text-end">
+                        Total: <span id="total">R$ 0,00</span>
+                    </h5>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                        Continuar comprando
                     </button>
 
-                </div>
-
-            </form>
-
-        </section>
-
-
-        <!-- APRESENTAÇÃO -->
-
-        <section class="secao cartao p-4 p-md-5" id="sobre">
-
-            <div class="row align-items-center g-4">
-
-                <div class="col-md-5 text-center">
-
-                    <img src="minha.foto.jpg.png" alt="Foto da Thayanne" class="foto">
-
-                    <p class="mt-3" style="color: var(--rosa-escuro)">
-                        Essa sou eu! 💗
-                    </p>
-
-                </div>
-
-                <div class="col-md-7">
-
-                    <span class="etiqueta">
-                        ♡ PRAZER, THAYANNE
-                    </span>
-
-                    <h2 class="titulo-secao">
-                        Bem-vindo ao meu universo!
-                    </h2>
-
-                    <p class="texto">
-
-                        Oiii! Meu nome é <strong>Thayanne</strong>,
-                        mas podem me chamar de Thay! 💗
-
-                        Criei este espaço para compartilhar um pouquinho
-                        de quem eu sou, das coisas que amo e dos meus sonhos.
-
-                    </p>
-
-                    <p class="texto">
-
-                        Estou aprendendo a criar sites e quero transformar
-                        esse aprendizado em novas oportunidades para o futuro.
-
-                    </p>
-
-                    <a href="#hobbies" class="btn btn-rosa mt-2">
-                        Conheça meu mundo ✨
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MINHA HISTÓRIA -->
-
-        <section class="secao" id="historia">
-
-            <span class="etiqueta">UM POUCO SOBRE MIM</span>
-
-            <h2 class="titulo-secao">
-                Minha história 🌷
-            </h2>
-
-            <div class="row g-4">
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-mortarboard"></i>
-                        </div>
-
-                        <h3 class="h5">Estudos</h3>
-
-                        <p class="texto">
-
-                            Comecei minha jornada acadêmica em Pedagogia,
-                            uma área ligada ao aprendizado e desenvolvimento.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-laptop"></i>
-                        </div>
-
-                        <h3 class="h5">Novos sonhos</h3>
-
-                        <p class="texto">
-
-                            Estou descobrindo o mundo da programação
-                            e aprendendo a criar minhas próprias páginas.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="col-md-4">
-
-                    <article class="cartao p-4">
-
-                        <div class="icone mb-3">
-                            <i class="bi bi-butterfly"></i>
-                        </div>
-
-                        <h3 class="h5">Meu futuro</h3>
-
-                        <p class="texto">
-
-                            Quero aprender coisas novas, evoluir e
-                            construir um futuro cheio de possibilidades.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- HOBBIES -->
-
-        <section class="secao" id="hobbies">
-
-            <span class="etiqueta">
-                COISINHAS QUE AMO
-            </span>
-
-            <h2 class="titulo-secao">
-                Meus hobbies 🎀
-            </h2>
-
-
-            <!-- MODAL RBD -->
-
-            <div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
-
-                <div class="modal-dialog modal-dialog-centered">
-
-                    <div class="modal-content p-3">
-
-                        <div class="modal-header border-0">
-
-                            <h5 class="modal-title" id="tituloRBD">
-                                RBD ❤️
-                            </h5>
-
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                            </button>
-
-                        </div>
-
-                        <div class="modal-body text-center">
-
-                            <img src="RBD.jpg.jpg" alt="Banda RBD">
-
-                            <p class="mt-3">
-                                RBD no meu coração! ❤️
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            </article>
-
-            </div>
-
-
-            <!-- FRIENDS -->
-
-            <div class="col-md-4">
-
-                <article class="cartao p-4 text-center">
-
-                    <img src="friends.jpg" alt="Capa da série Friends" class="imagem-hobby mb-3" data-bs-toggle="modal"
-                        data-bs-target="#modalFriends">
-
-                    <h3 class="h5">Séries 🍿</h3>
-
-                    <p class="texto">
-
-                        Minha série favorita é Friends! ☕
-                        Amo acompanhar as histórias, amizades
-                        e momentos divertidos.
-
-                    </p>
-
-                    <button class="btn btn-rosa" data-bs-toggle="modal" data-bs-target="#modalFriends">
-
-                        Ver imagem 💗
-
+                    <button class="btn btn-success" onclick="finalizar()">
+                        Finalizar pedido
                     </button>
-
-                </article>
-
-            </div>
-
-
-            <!-- CACHORROS -->
-
-            <div class="col-md-4">
-
-                <article class="cartao p-4 text-center">
-
-                    <div class="icone mb-3">
-                        <i class="bi bi-heart"></i>
-                    </div>
-
-                    <h3 class="h5">Meus cachorros 🐶</h3>
-
-                    <p class="texto">
-
-                        Adoro brincar com meus companheiros
-                        de quatro patas.
-
-                    </p>
-
-                </article>
-
-            </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MODAL RBD -->
-
-        <div class="modal fade" id="modalRBD" tabindex="-1" aria-labelledby="tituloRBD" aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered">
-
-                <div class="modal-content p-3">
-
-                    <div class="modal-header border-0">
-
-                        <h5 class="modal-title" id="tituloRBD">
-                            RBD ❤️
-                        </h5>
-
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                        </button>
-
-                    </div>
-
-                    <div class="modal-body text-center">
-
-                        <img src="RBD.jpg.jpg" alt="Banda RBD">
-
-                        <p class="mt-3">
-                            RBD no meu coração! ❤️
-                        </p>
-
-                    </div>
-
                 </div>
 
             </div>
-
         </div>
-
-
-        <!-- MODAL FRIENDS -->
-
-        <div class="modal fade" id="modalFriends" tabindex="-1" aria-labelledby="tituloFriends" aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered">
-
-                <div class="modal-content p-3">
-
-                    <div class="modal-header border-0">
-
-                        <h5 class="modal-title" id="tituloFriends">
-                            Friends ☕
-                        </h5>
-
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                        </button>
-
-                    </div>
-
-                    <div class="modal-body text-center">
-
-                        <img src="friends.jpg" alt="Capa da série Friends">
-
-                        <p class="mt-3">
-                            I'll be there for you! 💗
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CURIOSIDADE -->
-
-        <section class="secao cartao p-4" id="curiosidade">
-
-            <h2 class="titulo-secao">
-                Uma curiosidade sobre mim! 💕
-            </h2>
-
-            <p class="texto">
-
-                Tenho várias paixões, mas existe uma que ocupa
-                um espaço especial no meu coração!
-
-            </p>
-
-            <details>
-
-                <summary style="color: var(--rosa-escuro); cursor: pointer;">
-                    Clique para descobrir!
-                </summary>
-
-                <p class="texto mt-3">
-
-                    Sou apaixonada pelo Flamengo!
-                    ❤️🖤 Uma vez Flamengo, sempre Flamengo!
-
-                </p>
-
-            </details>
-
-        </section>
-
-
-        <!-- FLAMENGO -->
-
-        <section class="secao flamengo p-4 p-md-5 text-center" id="flamengo">
-
-            <img src="mengo.jpg.jpeg" alt="Flamengo, meu time do coração" class="img-fluid rounded mb-3"
-                style="width: 160px;">
-
-            <h2>
-                Meu coração é rubro-negro! ❤️🖤
-            </h2>
-
-            <p>
-
-                Ser Flamengo é muito mais que torcer.
-                É paixão, história e amor que não se explica!
-
-            </p>
-
-            <p>
-                <strong>
-                    Uma vez Flamengo, sempre Flamengo!
-                </strong>
-            </p>
-
-            <div class="mt-3">
-
-                <a href="Flamengo.html" target="_blank" class="btn-flamengo m-1">
-
-                    🔴 Conheça meu mundo rubro-negro
-
-                </a>
-
-                <a href="pdfmengo.pdf" target="_blank" class="btn btn-light rounded-pill m-1">
-
-                    🏆 Mengão do meu coração
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTATO -->
-
-        <section class="secao contato text-center" id="contato">
-
-            <span class="etiqueta">
-                VAMOS CONVERSAR?
-            </span>
-
-            <h2 class="titulo-secao">
-                Entre em contato 💌
-            </h2>
-
-            <p class="texto">
-
-                Quer falar comigo? É só escolher uma opção abaixo!
-
-            </p>
-
-            <a href="mailto:thaytf15@gmail.com" class="btn btn-rosa m-2">
-
-                <i class="bi bi-envelope"></i>
-                Enviar e-mail
-
-            </a>
-
-            <a href="tel:5548992199253" class="btn btn-rosa m-2">
-
-                <i class="bi bi-telephone"></i>
-                Ligar para mim
-
-            </a>
-
-        </section>
-
-
-        <!-- INSCRIÇÃO -->
-
-        <section class="secao formulario text-center" id="inscricao">
-
-            <h2 class="titulo-secao">
-                Faça parte do meu universo! 💗
-            </h2>
-
-            <form action="#" method="get">
-
-                <div class="row justify-content-center">
-
-                    <div class="col-md-6">
-
-                        <label for="nome" class="form-label">
-                            Seu nome:
-                        </label>
-
-                        <input type="text" id="nome" name="nome" class="form-control mb-3" placeholder="Digite seu nome"
-                            required>
-
-                        <button type="submit" class="btn btn-rosa">
-
-                            Enviar 💌
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </form>
-
-        </section>
-
-    </main>
-
-
-    <!-- RODAPÉ -->
-
-    <footer class="text-center" id="rodape">
-
-        <p>
-
-            Feito com
-            <span style="color: #d71960;">♥️</span>
-            por <strong>Thayanne</strong>
-
+    </div>
+
+    <!-- CONTATO -->
+    <section class="container text-center my-5" id="contato">
+        <h2>Entre em contato</h2>
+        <p class="text-muted">
+            Precisa de ajuda? Fale com nossa equipe.
         </p>
 
-        <p>
-            © 2026 · Meu universo cor-de-rosa
-        </p>
-
-        <p class="small">
-            Desenvolvido com HTML, CSS e Bootstrap.
-        </p>
-
-        <a href="#inicio" style="color: var(--rosa-escuro);
-            font-weight: bold;
-            text-decoration: none;">
-
-            Voltar ao topo ↑
-
+        <a href="https://wa.me/5500000000000" class="btn btn-success">
+            <i class="bi bi-whatsapp"></i>
+            Fale pelo WhatsApp
         </a>
+    </section>
 
+    <!-- FOOTER -->
+    <footer class="text-center">
+        <h4>MINHA STORE</h4>
+        <p>Qualidade e confiança em um só lugar.</p>
+        <p class="mb-0">
+            © 2026 Minha Store - Todos os direitos reservados.
+        </p>
     </footer>
 
+    <!-- JAVASCRIPT -->
+    <script>
+        let carrinho = [];
 
-    <!-- BOOTSTRAP JAVASCRIPT -->
+        function adicionar(nome, preco) {
+            carrinho.push({
+                nome: nome,
+                preco: preco
+            });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+            atualizarCarrinho();
+
+            alert(nome + " adicionado ao carrinho!");
+        }
+
+        function atualizarCarrinho() {
+
+            document.getElementById("quantidade").innerText =
+                carrinho.length;
+
+            let html = "";
+            let total = 0;
+
+            carrinho.forEach((item, index) => {
+
+                total += item.preco;
+
+                html += `
+                <div class="d-flex justify-content-between mb-3">
+                    <div>
+                        <strong>${item.nome}</strong><br>
+                        R$ ${item.preco.toFixed(2).replace(".", ",")}
+                    </div>
+
+                    <button class="btn btn-sm btn-danger"
+                        onclick="remover(${index})">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            `;
+            });
+
+            document.getElementById("itensCarrinho").innerHTML =
+                html || "Seu carrinho está vazio.";
+
+            document.getElementById("total").innerText =
+                total.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
+                });
+        }
+
+        function remover(index) {
+            carrinho.splice(index, 1);
+            atualizarCarrinho();
+        }
+
+        function finalizar() {
+
+            if (carrinho.length === 0) {
+                alert("Seu carrinho está vazio!");
+                return;
+            }
+
+            let mensagem = "Olá! Gostaria de fazer um pedido:%0A%0A";
+
+            let total = 0;
+
+            carrinho.forEach(item => {
+                mensagem +=
+                    item.nome + " - R$ " +
+                    item.preco.toFixed(2) + "%0A";
+
+                total += item.preco;
+            });
+
+            mensagem += "%0ATotal: R$ " + total.toFixed(2);
+
+            // Substitua pelo número da loja
+            let telefone = "5500000000000";
+
+            window.open(
+                "https://wa.me/" + telefone + "?text=" + mensagem,
+                "_blank"
+            );
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
