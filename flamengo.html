@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano Mágico | Flamengo ❤️🖤</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            padding: 65px 20px;
+            background: linear-gradient(135deg, #600000, #b00000, #160000);
+            border-bottom: 4px solid #ff1b1b;
+        }
+
+        header h1 {
+            font-size: clamp(30px, 6vw, 48px);
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px red;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #eee;
+        }
+
+        nav {
+            background: #1c1c1c;
+            padding: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #500000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #ff3333;
+        }
+
+        .conteudo {
+            background: linear-gradient(145deg, #242424, #171717);
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 30px;
+            border-radius: 15px;
+            border-top: 5px solid #d00000;
+            box-shadow: 0 5px 25px #000;
+        }
+
+        h2 {
+            color: #ff3333;
+            margin-bottom: 22px;
+        }
+
+        h3 {
+            color: #ff3333;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .destaque {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        .frase {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            margin-top: 25px;
+            text-shadow: 0 0 10px red;
+        }
+
+        .midia {
+            width: 100%;
+            max-width: 560px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin: 15px;
+        }
+
+        .video {
+            width: 100%;
+            max-width: 560px;
+            aspect-ratio: 16 / 9;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .tabela-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #191919;
+            min-width: 500px;
+        }
+
+        th {
+            background: #a00000;
+            padding: 15px 8px;
+        }
+
+        td {
+            border: 1px solid #444;
+            padding: 14px 8px;
+        }
+
+        tr:nth-child(even) {
+            background: #292929;
+        }
+
+        tr:hover {
+            background: #490000;
+        }
+
+        .flamengo {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        .aviso {
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #ff5555;
+        }
+
+        .formulario input {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            margin: 12px 0;
+            border: 1px solid #555;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+        }
+
+        .formulario button {
+            background: #c00000;
+            color: white;
+            padding: 13px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .formulario button:hover {
+            background: red;
+            transform: scale(1.05);
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 22px;
+            border-radius: 999px;
+            background: #2a2a2a;
+            color: #ffb3ba;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #800000;
+            transition: .3s;
+        }
+
+        .btn-voltar:hover {
+            background: #b00000;
+            color: white;
+        }
+
+        footer {
+            background: #191919;
+            padding: 30px;
+            margin-top: 45px;
+            color: #aaa;
+            border-top: 2px solid #900000;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 6px;
+                font-size: 13px;
+            }
+
+            .conteudo {
+                margin: 20px 12px;
+                padding: 20px 15px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>❤️🖤 ANO MÁGICO ❤️🖤</h1>
+        <p>Uma paixão que nunca acaba. Uma história que jamais será esquecida!</p>
+    </header>
+
+    <nav>
+        <a href="#historia">História</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#jogos">Jogos</a>
+        <a href="#torcedora">Torcedora</a>
+        <a href="index.html">💗 Meu Blog</a>
+    </nav>
+
+    <main>
+
+        <section class="conteudo" id="historia">
+            <h2>🏆 Flamengo em 2019</h2>
+
+            <p>
+                O ano de 2019 entrou para a história do
+                <span class="destaque">Clube de Regatas do Flamengo!</span>
+            </p>
+
+            <p>
+                Na final da Libertadores, o Mengão venceu
+                o River Plate por 2 a 1, com dois gols de
+                Gabigol nos minutos finais da partida.
+            </p>
+
+            <p>
+                Além da Libertadores, o Flamengo também
+                conquistou o Campeonato Brasileiro,
+                fazendo uma temporada inesquecível!
+            </p>
+
+            <h3>Uma vez Flamengo, sempre Flamengo!</h3>
+
+            <p class="frase">
+                ❤️ SER FLAMENGO É UM SENTIMENTO! 🖤
+            </p>
+        </section>
+
+        <section class="conteudo" id="videos">
+            <h2>🎵 Hino do Flamengo</h2>
+
+            <p>Ouça o hino do nosso Mengão!</p>
+
+            <audio controls>
+                <source src="hino.mp3.mp3" type="audio/mpeg">
+                Seu navegador não suporta áudio.
+            </audio>
+
+            <h2>🎬 Momentos do Mengão</h2>
+
+            <video class="midia" controls>
+                <source src="passaro.mengo.mp4.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo.
+            </video>
+
+            <iframe class="video" src="https://www.youtube.com/embed/GEBG3hBQPl4" title="Vídeo do Flamengo"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <section class="conteudo" id="jogos">
+            <h2>⚽ Próximos jogos do Flamengo</h2>
+
+            <p>Confira a agenda do nosso Mengão!</p>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Jogo</th>
+                            <th>Horário</th>
+                            <th>Competição</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>26/10/2026</td>
+                            <td><span class="flamengo">Flamengo</span> x Atlético-MG</td>
+                            <td>20h</td>
+                            <td>Brasileirão</td>
+                        </tr>
+
+                        <tr>
+                            <td>29/10/2026</td>
+                            <td>Vasco x <span class="flamengo">Flamengo</span></td>
+                            <td>20h</td>
+                            <td>Brasileirão</td>
+                        </tr>
+
+                        <tr>
+                            <td>04/11/2026</td>
+                            <td><span class="flamengo">Flamengo</span> x Grêmio</td>
+                            <td>19h30</td>
+                            <td>Brasileirão</td>
+                        </tr>
+
+                        <tr>
+                            <td>18/11/2026</td>
+                            <td><span class="flamengo">Flamengo</span> x Athletico-PR</td>
+                            <td>15h</td>
+                            <td>Brasileirão</td>
+                        </tr>
+
+                        <tr>
+                            <td>22/11/2026</td>
+                            <td>Palmeiras x <span class="flamengo">Flamengo</span></td>
+                            <td>15h</td>
+                            <td>Brasileirão</td>
+                        </tr>
+
+                        <tr>
+                            <td>29/11/2026</td>
+                            <td>Coritiba x <span class="flamengo">Flamengo</span></td>
+                            <td>15h</td>
+                            <td>Brasileirão</td>
+                        </tr>
+
+                        <tr>
+                            <td>02/12/2026</td>
+                            <td><span class="flamengo">Flamengo</span> x Chapecoense</td>
+                            <td>15h</td>
+                            <td>Brasileirão</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="aviso">
+                ❤️🖤 Horários e partidas sujeitos a alterações.
+                Consulte a
+                <a href="https://www.flamengo.com.br/en/futebol/proximos-jogos" target="_blank"
+                    rel="noopener noreferrer">
+                    agenda oficial do Flamengo
+                </a>.
+            </p>
+        </section>
+
+        <section class="conteudo formulario" id="torcedora">
+            <h2>❤️🖤 Espaço da Torcedora</h2>
+
+            <p>Deixe seu nome e mostre seu amor pelo Mengão!</p>
+
+            <form action="inscricao" method="post">
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                <button type="submit">Enviar ❤️</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Feito com ❤️ por uma torcedora apaixonada pelo Mengão!</p>
+        <p>Flamengo até morrer! ❤️🖤</p>
+        <p>© 2026 - Ano Mágico do Flamengo</p>
+        <a href="index.html" class="btn-voltar">← Voltar para o Meu Universo Colorido 💗</a>
+    </footer>
+
+</body>
+
+</html>
